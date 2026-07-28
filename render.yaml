@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: tekhshopify
+    runtime: node
+    buildCommand: npm install && npm install --prefix server && npm install --prefix client && npm run build
+    startCommand: NODE_ENV=production npm run start --prefix server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_USER
+        sync: false
+      - key: ADMIN_PASS
+        sync: false
+      - key: WHATSAPP_NUMBER
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: SHOPIFY_SECRET_VOGUE
+        sync: false
+      - key: SHOPIFY_SECRET_SNS
+        sync: false
+      - key: MNP_USER_VOGUE
+        sync: false
+      - key: MNP_PASS_VOGUE
+        sync: false
+      - key: MNP_USER_SNS
+        sync: false
+      - key: MNP_PASS_SNS
+        sync: false

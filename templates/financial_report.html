@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Financial Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family:Arial;background:#f1f5f9;margin:0}
+    .header{background:#0f172a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .header a{color:#fff;text-decoration:none;font-weight:bold;opacity:.9}
+    .wrap{max-width:950px;margin:20px auto;padding:0 12px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:14px}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .input{padding:10px 12px;border-radius:12px;border:1px solid #d1d5db;font-size:14px}
+    .btn{display:inline-block;padding:10px 12px;border-radius:12px;text-decoration:none;color:#fff;font-size:13px;background:#2563eb;border:none;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+    .kpi{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:12px}
+    .kpi .t{font-size:12px;color:#64748b;font-weight:bold}
+    .kpi .v{font-size:20px;margin-top:6px}
+    .note{font-size:12px;color:#64748b;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div><b>Financial Report</b></div>
+    <div><a href="/admin">← Back to Admin</a></div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <form method="POST" class="row">
+        <div>
+          <div style="font-size:12px;color:#64748b;font-weight:bold">Select Date</div>
+          <input class="input" type="date" name="date" value="{{ selected_date }}">
+        </div>
+        <button class="btn" type="submit">View Report</button>
+      </form>
+
+      <div class="note">
+        Courier cost = {{ courier_unit }} per parcel, Ad cost = {{ ad_unit }} per parcel (per order). Orders file: <b>{{ orders_file_used }}</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <div class="kpi"><div class="t">Total Orders</div><div class="v">{{ total_orders }}</div></div>
+        <div class="kpi"><div class="t">Delivered</div><div class="v">{{ delivered_orders }}</div></div>
+        <div class="kpi"><div class="t">Returned</div><div class="v">{{ returned_orders }}</div></div>
+        <div class="kpi"><div class="t">Return Rate</div><div class="v">{{ return_rate }}%</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <div class="kpi"><div class="t">Revenue (Delivered)</div><div class="v">Rs {{ revenue }}</div></div>
+        <div class="kpi"><div class="t">Product Cost (Delivered)</div><div class="v">Rs {{ product_cost_total }}</div></div>
+        <div class="kpi"><div class="t">Courier Cost (Del+Ret)</div><div class="v">Rs {{ courier_cost_total }}</div></div>
+        <div class="kpi"><div class="t">Ad Cost (Per Order)</div><div class="v">Rs {{ ad_spend }}</div></div>
+        <div class="kpi"><div class="t">Net Profit</div><div class="v">Rs {{ net_profit }}</div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

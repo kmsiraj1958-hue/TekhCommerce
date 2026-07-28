@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory Entry</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f7fb;
+      padding:20px;
+    }
+    .panel{
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      max-width:700px;
+      margin:auto;
+    }
+    h2{
+      margin-top:0;
+    }
+    label{
+      display:block;
+      margin-top:14px;
+      margin-bottom:6px;
+      font-weight:bold;
+    }
+    select, input, textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      box-sizing:border-box;
+    }
+    textarea{
+      min-height:90px;
+    }
+    .row{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      text-decoration:none;
+      color:#fff;
+      font-weight:bold;
+    }
+    .save{background:#10b981;}
+    .back{background:#334155;}
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h2>Inventory Entry</h2>
+
+    <form method="POST">
+      <label>Product Code</label>
+      <select name="code" required>
+        <option value="">Select Product</option>
+        {% for p in products %}
+          <option value="{{ p.get('code') }}">
+            {{ p.get('code') }} - {{ p.get('name') }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <label>Quantity</label>
+      <input type="number" name="qty" min="1" required>
+
+      <label>Movement Type</label>
+      <select name="type" required>
+        <option value="">Select Type</option>
+        <option value="purchase">Purchase</option>
+        <option value="manual_add">Manual Add</option>
+        <option value="return_in">Return In</option>
+        <option value="damage">Damage</option>
+        <option value="adjustment">Adjustment</option>
+      </select>
+
+      <label>Note</label>
+      <textarea name="note" placeholder="Reason / supplier / correction note"></textarea>
+
+      <div class="row">
+        <button type="submit" class="btn save">Save Entry</button>
+        <a href="/inventory" class="btn back">Back to Inventory</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

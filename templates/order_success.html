@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Placed</title>
+  <style>
+    body{font-family:Arial;background:#f1f3f6;margin:0}
+    .box{max-width:520px;margin:40px auto;background:#fff;padding:18px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    a{display:inline-block;background:#25D366;color:#fff;padding:12px 14px;border-radius:10px;text-decoration:none}
+    .tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#eee;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Order Saved ✅</h2>
+    <p>Your Order ID: <span class="tag"><b>{{ order_id }}</b></span></p>
+    <p>Now send the order on WhatsApp to confirm:</p>
+    <a href="{{ wa_url }}" target="_blank">Send on WhatsApp</a>
+  </div>
+</body>
+</html>

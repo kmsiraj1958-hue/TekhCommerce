@@ -1,0 +1,48 @@
+{
+  "accounts": [
+    {
+      "id": "acc-cash",
+      "code": "1000",
+      "name": "Cash",
+      "type": "asset"
+    },
+    {
+      "id": "acc-bank",
+      "code": "1100",
+      "name": "Bank Account",
+      "type": "asset"
+    },
+    {
+      "id": "acc-receivable",
+      "code": "1200",
+      "name": "Accounts Receivable",
+      "type": "asset"
+    },
+    {
+      "id": "acc-payable",
+      "code": "2000",
+      "name": "Accounts Payable",
+      "type": "liability"
+    },
+    {
+      "id": "acc-revenue",
+      "code": "4000",
+      "name": "Revenue",
+      "type": "income"
+    },
+    {
+      "id": "acc-expense",
+      "code": "5000",
+      "name": "Operating Expenses",
+      "type": "expense"
+    },
+    {
+      "id": "acc-salary",
+      "code": "5100",
+      "name": "Salaries & Wages",
+      "type": "expense"
+    }
+  ],
+  "entries": [],
+  "updatedAt": "2026-06-18T13:10:44.375Z"
+}

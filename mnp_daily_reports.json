@@ -1,0 +1,212 @@
+[
+    {
+        "store": "VOGUE",
+        "imported_at": "2026-02-22 20:56",
+        "filename": "QSRReport_2026-02-22_1.xlsx",
+        "rows_count": 8
+    },
+    {
+        "store": "SNS",
+        "imported_at": "2026-02-22 20:56",
+        "filename": "QSRReport_2026-02-22_2.xlsx",
+        "rows_count": 9
+    },
+    {
+        "id": "d4ef68b4-30d9-4975-828f-2c63295c1f80",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24.xlsx",
+        "saved_name": "VOGUE_DAILY_d4ef68b4-30d9-4975-828f-2c63295c1f80_QSRReport_2026-02-24.xlsx",
+        "imported_at": "2026-02-24 15:01",
+        "rows_count": 6
+    },
+    {
+        "id": "85ca7ac8-2849-495a-8fe3-1a96e1a1eff5",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_9.xlsx",
+        "saved_name": "VOGUE_DAILY_85ca7ac8-2849-495a-8fe3-1a96e1a1eff5_QSRReport_2026-02-24_9.xlsx",
+        "imported_at": "2026-02-24 15:59",
+        "rows_count": 11
+    },
+    {
+        "id": "8d094051-c8e1-4fba-ac9a-9d7b4aeac128",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_8.xlsx",
+        "saved_name": "VOGUE_DAILY_8d094051-c8e1-4fba-ac9a-9d7b4aeac128_QSRReport_2026-02-24_8.xlsx",
+        "imported_at": "2026-02-24 15:59",
+        "rows_count": 8
+    },
+    {
+        "id": "d179b541-a0a3-44cc-91f2-e2af3cfccb2f",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_7.xlsx",
+        "saved_name": "VOGUE_DAILY_d179b541-a0a3-44cc-91f2-e2af3cfccb2f_QSRReport_2026-02-24_7.xlsx",
+        "imported_at": "2026-02-24 15:59",
+        "rows_count": 12
+    },
+    {
+        "id": "a50117e1-224a-49eb-987b-65712c5c00ea",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_6.xlsx",
+        "saved_name": "VOGUE_DAILY_a50117e1-224a-49eb-987b-65712c5c00ea_QSRReport_2026-02-24_6.xlsx",
+        "imported_at": "2026-02-24 15:59",
+        "rows_count": 6
+    },
+    {
+        "id": "01389455-de4e-45b4-82e7-b59abe04a927",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_5.xlsx",
+        "saved_name": "VOGUE_DAILY_01389455-de4e-45b4-82e7-b59abe04a927_QSRReport_2026-02-24_5.xlsx",
+        "imported_at": "2026-02-24 16:00",
+        "rows_count": 12
+    },
+    {
+        "id": "b9a46a5e-ffb4-4189-8b9f-12fadb3c4b1b",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_4.xlsx",
+        "saved_name": "VOGUE_DAILY_b9a46a5e-ffb4-4189-8b9f-12fadb3c4b1b_QSRReport_2026-02-24_4.xlsx",
+        "imported_at": "2026-02-24 16:00",
+        "rows_count": 7
+    },
+    {
+        "id": "ee6b776c-efa4-49ac-a699-73ef8c989cf6",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_3.xlsx",
+        "saved_name": "VOGUE_DAILY_ee6b776c-efa4-49ac-a699-73ef8c989cf6_QSRReport_2026-02-24_3.xlsx",
+        "imported_at": "2026-02-24 16:00",
+        "rows_count": 8
+    },
+    {
+        "id": "aa7498b2-f884-41f6-abbd-06c12f8337ed",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_2.xlsx",
+        "saved_name": "VOGUE_DAILY_aa7498b2-f884-41f6-abbd-06c12f8337ed_QSRReport_2026-02-24_2.xlsx",
+        "imported_at": "2026-02-24 16:01",
+        "rows_count": 10
+    },
+    {
+        "id": "f9861d6c-a17c-4e5a-a60d-4d0de5ff8a48",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-24_1.xlsx",
+        "saved_name": "VOGUE_DAILY_f9861d6c-a17c-4e5a-a60d-4d0de5ff8a48_QSRReport_2026-02-24_1.xlsx",
+        "imported_at": "2026-02-24 16:01",
+        "rows_count": 4
+    },
+    {
+        "id": "3677fdd5-6cd4-4a43-a70e-985b23ced632",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-24_12.xlsx",
+        "saved_name": "SNS_DAILY_3677fdd5-6cd4-4a43-a70e-985b23ced632_QSRReport_2026-02-24_12.xlsx",
+        "imported_at": "2026-02-24 16:02",
+        "rows_count": 7
+    },
+    {
+        "id": "4820f38c-70d8-42d2-8f2d-2ae0d4be2915",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-24_11.xlsx",
+        "saved_name": "SNS_DAILY_4820f38c-70d8-42d2-8f2d-2ae0d4be2915_QSRReport_2026-02-24_11.xlsx",
+        "imported_at": "2026-02-24 16:02",
+        "rows_count": 9
+    },
+    {
+        "id": "3956d4cb-cf59-4316-a77c-69b9046fd394",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-26.xlsx",
+        "saved_name": "SNS_DAILY_3956d4cb-cf59-4316-a77c-69b9046fd394_QSRReport_2026-02-26.xlsx",
+        "imported_at": "2026-02-26 19:27",
+        "rows_count": 8
+    },
+    {
+        "id": "2efa7aa1-ae05-4139-964e-2413c9f28776",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-26_1.xlsx",
+        "saved_name": "SNS_DAILY_2efa7aa1-ae05-4139-964e-2413c9f28776_QSRReport_2026-02-26_1.xlsx",
+        "imported_at": "2026-02-26 19:28",
+        "rows_count": 4
+    },
+    {
+        "id": "69d9d71c-f7df-49fe-822c-443bd1e8aeb5",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-26_2.xlsx",
+        "saved_name": "VOGUE_DAILY_69d9d71c-f7df-49fe-822c-443bd1e8aeb5_QSRReport_2026-02-26_2.xlsx",
+        "imported_at": "2026-02-26 19:34",
+        "rows_count": 2
+    },
+    {
+        "id": "3096c4c1-549a-4d3b-9d49-d7918609b15e",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-26_3.xlsx",
+        "saved_name": "VOGUE_DAILY_3096c4c1-549a-4d3b-9d49-d7918609b15e_QSRReport_2026-02-26_3.xlsx",
+        "imported_at": "2026-02-26 19:34",
+        "rows_count": 9
+    },
+    {
+        "id": "91267828-5765-4031-aa26-d4cf899b5622",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-27.xlsx",
+        "saved_name": "VOGUE_DAILY_91267828-5765-4031-aa26-d4cf899b5622_QSRReport_2026-02-27.xlsx",
+        "imported_at": "2026-02-27 18:17",
+        "rows_count": 3
+    },
+    {
+        "id": "e02878f3-dda6-4f9a-8fc6-766a97efb591",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-02-27_1.xlsx",
+        "saved_name": "VOGUE_DAILY_e02878f3-dda6-4f9a-8fc6-766a97efb591_QSRReport_2026-02-27_1.xlsx",
+        "imported_at": "2026-02-27 18:17",
+        "rows_count": 7
+    },
+    {
+        "id": "95041471-38bb-40b5-ae7d-a4f926fa40c2",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-27_2.xlsx",
+        "saved_name": "SNS_DAILY_95041471-38bb-40b5-ae7d-a4f926fa40c2_QSRReport_2026-02-27_2.xlsx",
+        "imported_at": "2026-02-27 18:18",
+        "rows_count": 8
+    },
+    {
+        "id": "1706b727-9cc2-4670-b5b1-dbcb88a6cb8f",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-02-27_3.xlsx",
+        "saved_name": "SNS_DAILY_1706b727-9cc2-4670-b5b1-dbcb88a6cb8f_QSRReport_2026-02-27_3.xlsx",
+        "imported_at": "2026-02-27 18:18",
+        "rows_count": 3
+    },
+    {
+        "id": "9ef83d93-b388-40e8-9ee0-402b1c082571",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "QSRReport_2026-03-01.xlsx",
+        "saved_name": "VOGUE_DAILY_9ef83d93-b388-40e8-9ee0-402b1c082571_QSRReport_2026-03-01.xlsx",
+        "imported_at": "2026-03-01 20:25",
+        "rows_count": 4
+    },
+    {
+        "id": "47b43dd1-8f61-4b27-bfed-53ba4064824e",
+        "type": "daily",
+        "store": "SNS",
+        "filename": "QSRReport_2026-03-01_1.xlsx",
+        "saved_name": "SNS_DAILY_47b43dd1-8f61-4b27-bfed-53ba4064824e_QSRReport_2026-03-01_1.xlsx",
+        "imported_at": "2026-03-01 20:25",
+        "rows_count": 7
+    }
+]

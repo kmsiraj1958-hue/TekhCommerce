@@ -1,0 +1,672 @@
+[
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-001",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "2.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-002",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "3.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-003",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "4.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-004",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.22 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-005",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "Purse",
+        "image": "5.jpeg",
+        "opening_stock": 3,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-006",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "6.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-007",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "7.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-008",
+        "price": 2250,
+        "cost": 1125,
+        "category": "Purse",
+        "image": "8.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-009",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "9.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-010",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "10.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-011",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "11.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-012",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "12.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-013",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "13.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-014",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "14.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-015",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "15.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Ladies Designer Purse ",
+        "code": "VIB-016",
+        "price": 2150,
+        "cost": 1075,
+        "category": "Purse",
+        "image": "16.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit",
+        "code": "VPK-203",
+        "price": 2650,
+        "cost": 1325,
+        "category": "Premium Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit",
+        "code": "VPK-208",
+        "price": 2650,
+        "cost": 1325,
+        "category": "Premium Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit",
+        "code": "VPK-202",
+        "price": 2650,
+        "cost": 1325,
+        "category": "Premium Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit",
+        "code": "VPK-201",
+        "price": 2650,
+        "cost": 1325,
+        "category": "Premium Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-101",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-109",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-110",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-100",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (4).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "SSL-103",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (5).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "SSL-102",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (6).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "SSL-101",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (7).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "SSL-100",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (8).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-108",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (9).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Lawn",
+        "code": "VLK-111",
+        "price": 1950,
+        "cost": 975,
+        "category": "Lawn Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-002",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (1).jpeg",
+        "opening_stock": 8,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-003",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (2).jpeg",
+        "opening_stock": 18,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VIB-005",
+        "price": 2250,
+        "cost": 1125,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK--07",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (4).jpeg",
+        "opening_stock": 12,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-011",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (5).jpeg",
+        "opening_stock": 5,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-012",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (6).jpeg",
+        "opening_stock": 2,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-004",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (7).jpeg",
+        "opening_stock": 1,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-008",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (8).jpeg",
+        "opening_stock": 5,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-006",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (9).jpeg",
+        "opening_stock": 6,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-001",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM.jpeg",
+        "opening_stock": 3,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VCK-000",
+        "price": 2250,
+        "cost": 1125,
+        "category": "High Quality Khaddar",
+        "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (10).jpeg",
+        "opening_stock": 3,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Boski",
+        "code": "SBB-001",
+        "price": 2950,
+        "cost": 1475,
+        "category": "Premium Boski",
+        "image": "premium boski 001.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Boski",
+        "code": "SBB-002",
+        "price": 2950,
+        "cost": 1475,
+        "category": "Premium Boski",
+        "image": "premium boski 002.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-402",
+        "price": 2850,
+        "cost": 1425,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-403",
+        "price": 2850,
+        "cost": 1425,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-404",
+        "price": 2850,
+        "cost": 1425,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-401",
+        "price": 2850,
+        "cost": 1425,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-102",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-103",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-104",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-105",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (4).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-106",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (5).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-101",
+        "price": 2900,
+        "cost": 1450,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-201",
+        "price": 2500,
+        "cost": 1250,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-203",
+        "price": 2500,
+        "cost": 1250,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-204",
+        "price": 2500,
+        "cost": 1250,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-205",
+        "price": 2500,
+        "cost": 1250,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-202",
+        "price": 2500,
+        "cost": 1250,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-302",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (1).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-303",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (2).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-304",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (3).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-305",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (4).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-306",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM (5).jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Wash N Wear",
+        "code": "SWW-301",
+        "price": 2550,
+        "cost": 1275,
+        "category": "High Quality Wash N Wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.43 PM.jpeg",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VIB-010",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "",
+        "opening_stock": 10,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VIB-013",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "",
+        "opening_stock": 2,
+        "reorder_level": 3
+    },
+    {
+        "name": "Gents Suit-Cotton",
+        "code": "VIB-014",
+        "price": 2250.0,
+        "cost": 1125.0,
+        "category": "High Quality Khaddar",
+        "image": "",
+        "opening_stock": 5,
+        "reorder_level": 3
+    }
+]

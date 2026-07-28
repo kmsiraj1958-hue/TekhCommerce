@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Inquiry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2 {
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: #1ebe57;
+        }
+
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 3s;
+        }
+
+        @keyframes fadein { from {top:0;opacity:0;} to {top:20px;opacity:1;} }
+        @keyframes fadeout { from {top:20px;opacity:1;} to {top:0;opacity:0;} }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .form-container { width: 90%; padding: 25px; }
+            input, textarea, button { font-size: 14px; padding: 10px; }
+            h2 { font-size: 20px; }
+        }
+    </style>
+
+    <script>
+        function validatePhone(phone) {
+            return /^[0-9]{10,15}$/.test(phone);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerHTML = `<i class="fab fa-whatsapp"></i> ${message}`;
+            toast.className = "toast show";
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3500);
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById("error-msg");
+            errorDiv.textContent = message;
+            errorDiv.style.display = "block";
+        }
+
+        function clearError() {
+            const errorDiv = document.getElementById("error-msg");
+            errorDiv.style.display = "none";
+        }
+
+        function handleForm(event) {
+            event.preventDefault();
+            clearError();
+
+            const form = event.target;
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
+            const product = form.product.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !phone || !product || !message) {
+                showError("All fields are required!");
+                return;
+            }
+
+            if (!validatePhone(phone)) {
+                showError("Enter a valid phone number (10-15 digits).");
+                return;
+            }
+
+            showToast(`Thank you ${name}! Your inquiry about "${product}" has been received.`);
+            setTimeout(() => { form.submit(); }, 500);
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Submit Your Inquiry</h2>
+        <div class="error-message" id="error-msg"></div>
+        <div id="toast" class="toast"></div>
+
+        <form method="POST" action="{{ url_for('submit') }}" onsubmit="handleForm(event)">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="product" placeholder="Product Name" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit"><i class="fab fa-whatsapp"></i> Submit Inquiry</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

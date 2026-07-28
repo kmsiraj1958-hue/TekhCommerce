@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weekly Report</title>
+  <style>
+    body{font-family:Arial;background:#f4f7fb;padding:20px}
+    .panel{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+    table{width:100%;border-collapse:collapse;margin-top:20px;background:#fff}
+    th,td{padding:12px;border:1px solid #e5e7eb;text-align:left}
+    th{background:#f1f5f9}
+    h2{margin-top:0}
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h2>Weekly Reports</h2>
+    <table>
+      <tr>
+        <th>Week Start</th>
+        <th>Week End</th>
+        <th>Total Orders</th>
+        <th>Delivered</th>
+        <th>Returned</th>
+        <th>Shipped</th>
+        <th>Delivery %</th>
+        <th>Return %</th>
+        <th>Total Sale</th>
+        <th>Total COD</th>
+        <th>Payout Received</th>
+        <th>Balance With Courier</th>
+        <th>Generated At</th>
+      </tr>
+      {% for r in reports %}
+      <tr>
+        <td>{{ r.week_start }}</td>
+        <td>{{ r.week_end }}</td>
+        <td>{{ r.total_orders }}</td>
+        <td>{{ r.delivered_orders }}</td>
+        <td>{{ r.returned_orders }}</td>
+        <td>{{ r.shipped_orders }}</td>
+        <td>{{ r.delivery_success_rate }}%</td>
+        <td>{{ r.return_rate }}%</td>
+        <td>{{ r.total_sale }}</td>
+        <td>{{ r.total_cod }}</td>
+        <td>{{ r.payout_received }}</td>
+        <td><b>{{ r.balance_with_courier }}</b></td>
+        <td>{{ r.generated_at }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

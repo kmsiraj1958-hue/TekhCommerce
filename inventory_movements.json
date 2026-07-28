@@ -1,0 +1,58 @@
+[
+    {
+        "date": "2026-03-25 10:12",
+        "code": "VIB-003",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "Order confirmed: ORD-0001"
+    },
+    {
+        "date": "2026-03-25 10:56",
+        "code": "VIB-003",
+        "qty": 1,
+        "type": "return_in",
+        "store": "LOCAL",
+        "note": "Stock restored: ORD-0001"
+    },
+    {
+        "date": "2026-03-31 11:31",
+        "code": "SC-304",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "Order confirmed: ORD-0005"
+    },
+    {
+        "date": "2026-03-31 11:33",
+        "code": "SSC-104",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "Order confirmed: ORD-0001"
+    },
+    {
+        "date": "2026-03-31 11:38",
+        "code": "LENS-PROTECT-2YR",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "Order confirmed: ORD-0002"
+    },
+    {
+        "date": "2026-03-31 11:38",
+        "code": "CASE-LEATHER-PREM",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "Order confirmed: ORD-0002"
+    },
+    {
+        "date": "2026-03-31 11:42",
+        "code": "SC-304",
+        "qty": 1,
+        "type": "return_in",
+        "store": "SNS",
+        "note": "Stock restored: ORD-0005"
+    }
+]

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Operations Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family:Arial;background:#f1f5f9;margin:0}
+    .header{background:#0f172a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .wrap{max-width:1300px;margin:20px auto;padding:0 12px}
+    .panel{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px;margin-bottom:12px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .input,.select{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db}
+    table{width:100%;border-collapse:collapse;background:#fff}
+    th,td{padding:8px;border-bottom:1px solid #eee;font-size:13px}
+    th{background:#f8fafc;text-align:left}
+    .muted{color:#64748b;font-size:12px}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div><b>Daily Operations Report</b></div>
+  <div><a style="color:white;text-decoration:none" href="/admin">Back to Admin</a></div>
+</div>
+
+<div class="wrap">
+
+  <div class="panel">
+    <form method="GET" class="row">
+      <input class="input" type="date" name="date" value="{{ date_filter }}">
+
+      <select class="select" name="store">
+        <option value="">All Stores</option>
+        <option value="VOGUE" {% if store_filter=='VOGUE' %}selected{% endif %}>VOGUE</option>
+        <option value="SNS" {% if store_filter=='SNS' %}selected{% endif %}>SNS</option>
+        <option value="LOCAL" {% if store_filter=='LOCAL' %}selected{% endif %}>LOCAL</option>
+      </select>
+
+      <select class="select" name="status">
+        <option value="">All Status</option>
+        <option value="Delivered">Delivered</option>
+        <option value="Returned">Returned</option>
+        <option value="Booked">Booked</option>
+        <option value="Shipped">Shipped</option>
+      </select>
+
+      <button class="input" type="submit">Filter</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Consignment</th>
+          <th>Order ID</th>
+          <th>Store</th>
+          <th>Booking Date</th>
+          <th>Delivery Date</th>
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Attempts</th>
+          <th>COD</th>
+          <th>Payment ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for o in orders %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ o.get('tracking_number','') }}</td>
+          <td>{{ o.get('order_id','') }}</td>
+          <td>{{ o.get('store','') }}</td>
+          <td>{{ o.get('created_at','') }}</td>
+          <td>{{ o.get('mnp_delivery_date','') }}</td>
+          <td>{{ o.get('customer_name','') }}</td>
+          <td>{{ o.get('customer_phone','') }}</td>
+          <td>{{ o.get('mnp_status', o.get('status','')) }}</td>
+          <td>{{ o.get('mnp_attempts','') }}</td>
+          <td>{{ o.get('mnp_cod_amount','') }}</td>
+          <td>{{ o.get('mnp_payment_id','') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>

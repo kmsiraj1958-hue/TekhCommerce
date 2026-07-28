@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Product</title>
+<style>
+  /* Reset & base */
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f6fa; color: #333; }
+
+  /* Container */
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  /* Header */
+  .container .top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .container .top a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #4a90e2;
+    transition: color 0.2s;
+  }
+  .container .top a:hover { color: #1e70bf; }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+  }
+
+  /* Form fields */
+  form label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  form input, form select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  form input:focus, form select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74,144,226,0.3);
+    outline: none;
+  }
+
+  /* Grid for multiple inputs */
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  /* Submit button */
+  button {
+    width: 100%;
+    background: #4a90e2;
+    color: #fff;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #357ABD;
+  }
+
+  /* Small tip text */
+  .small {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 15px;
+  }
+
+  /* Image preview */
+  #imagePreview {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    object-fit: cover;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="top">
+    <a href="{{ url_for('admin') }}">← Back</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+
+  <h2>➕ Add Product</h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    <label>Product Name</label>
+    <input type="text" name="name" required placeholder="e.g. Ladies Designer Purse">
+
+    <div class="row">
+      <div>
+        <label>Product Code (Unique)</label>
+        <input type="text" name="code" required placeholder="e.g. VIB-001">
+      </div>
+      <div>
+        <label>Price (Rs)</label>
+        <input type="number" name="price" required placeholder="e.g. 2250">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Cost (Rs)</label>
+        <input type="number" name="cost" required placeholder="e.g. 1125">
+      </div>
+      <div>
+        <label>Opening Stock</label>
+        <input type="number" name="opening_stock" value="0">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Reorder Level</label>
+        <input type="number" name="reorder_level" value="3">
+      </div>
+      <div>
+        <label>Category</label>
+        <input type="text" name="category" placeholder="e.g. Purse / Lawn Khaddar">
+      </div>
+    </div>
+
+    <label>Image</label>
+    <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" onchange="previewImage(event)">
+    <img id="imagePreview" alt="Image Preview">
+
+    <button type="submit">Save Product</button>
+  </form>
+
+  <p class="small">Tip: Keep product codes short like WW-101, PRF-05, BAG-12</p>
+</div>
+
+<script>
+  function previewImage(event) {
+    const preview = document.getElementById('imagePreview');
+    const file = event.target.files[0];
+    if(file) {
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+    } else {
+      preview.src = '';
+      preview.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>

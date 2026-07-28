@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<h1>Khalid Store Collection</h1>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background:linear-gradient(135deg, #f8f6f3 0%, #f3f0eb 100%);
+color:#1a1a1a;
+min-height:100vh;
+}
+
+/* HEADER */
+
+.header{
+background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+color:#fff;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.1);
+box-shadow:0 4px 16px rgba(0,0,0,0.08);
+}
+
+.header .logo{
+font-size:22px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+background:linear-gradient(135deg, #ffb347 0%, #ffa94d 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+
+.header a{
+color:#e0e0e0;
+text-decoration:none;
+margin-left:32px;
+font-weight:500;
+font-size:12px;
+transition:all 0.3s ease;
+letter-spacing:0.5px;
+text-transform:uppercase;
+}
+
+.header a:hover{
+color:#ffb347;
+}
+
+/* WRAP */
+
+.wrap{
+width:95%;
+max-width:1600px;
+margin:0 auto;
+padding:60px 0;
+}
+
+/* HERO TITLE */
+
+.title{
+background:linear-gradient(135deg, #f3f0eb 0%, #ebe5dd 100%);
+border-radius:0;
+padding:80px 40px;
+text-align:center;
+box-shadow:none;
+border:none;
+position:relative;
+overflow:hidden;
+}
+
+.title::before{
+content:'';
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:200px;
+height:4px;
+background:linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+}
+
+.title h2{
+font-size:48px;
+margin-bottom:16px;
+letter-spacing:-0.8px;
+font-weight:700;
+color:#1a1a1a;
+}
+
+/* TRUST BADGES */
+
+.trust{
+display:flex;
+justify-content:center;
+gap:24px;
+flex-wrap:wrap;
+margin-bottom:32px;
+}
+
+.trust span{
+background:linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+padding:12px 18px;
+border-radius:20px;
+font-size:11px;
+font-weight:700;
+color:#d97706;
+border:1px solid rgba(217,119,6,0.2);
+text-transform:uppercase;
+letter-spacing:0.5px;
+}
+
+/* FILTERS */
+
+.filters{
+margin-top:32px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.filters input,
+.filters select{
+padding:12px 16px;
+border-radius:10px;
+border:1.5px solid #d4c5b9;
+width:280px;
+max-width:100%;
+font-size:13px;
+background:#fff;
+font-weight:400;
+color:#1a1a1a;
+transition:all 0.3s ease;
+}
+
+.filters input::placeholder{
+color:#a39e96;
+}
+
+.filters input:focus,
+.filters select:focus{
+outline:none;
+border-color:#ffb347;
+box-shadow:0 0 0 3px rgba(255,179,71,0.1);
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:40px;
+margin-top:60px;
+}
+
+/* PRODUCT CARD */
+
+.card{
+background:#fff;
+border-radius:16px;
+padding:0;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,179,71,0.15);
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:3px;
+background:linear-gradient(90deg, #ffb347 0%, #ffa94d 100%);
+z-index:10;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 48px rgba(255,179,71,0.2);
+border-color:#ffb347;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+/* IMAGE */
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:16px 16px 0 0;
+margin-bottom:0;
+transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
+background:linear-gradient(135deg, #f0e5d8 0%, #e8dcd3 100%);
+}
+
+/* NAME */
+
+.card h3{
+font-size:16px;
+margin:0 0 8px 0;
+font-weight:600;
+color:#1a1a1a;
+letter-spacing:-0.3px;
+line-height:1.5;
+padding:20px 18px 0 18px;
+}
+
+/* PRICE */
+
+.price{
+font-weight:700;
+font-size:18px;
+background:linear-gradient(135deg, #ffb347 0%, #ffa94d 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+margin:8px 0 20px 0;
+letter-spacing:0;
+padding:0 18px;
+}
+
+/* BUTTONS */
+
+.btn{
+display:inline-block;
+padding:13px 0;
+border-radius:10px;
+font-size:11px;
+font-weight:700;
+text-decoration:none;
+margin:0;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+text-transform:uppercase;
+letter-spacing:0.8px;
+border:none;
+cursor:pointer;
+text-align:center;
+background:transparent;
+color:#1a1a1a;
+width:calc(100% - 36px);
+margin:0 18px 9px 18px;
+}
+
+/* ADD TO CART */
+
+.btnCart{
+background:linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+color:#fff;
+box-shadow:0 6px 16px rgba(59,130,246,0.3);
+margin-bottom:12px;
+}
+
+.btnCart:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 24px rgba(59,130,246,0.4);
+}
+
+/* ORDER */
+
+.btnOrder{
+background:linear-gradient(135deg, #10b981 0%, #059669 100%);
+color:#fff;
+border:none;
+margin-bottom:18px;
+box-shadow:0 6px 16px rgba(16,185,129,0.3);
+}
+
+.btnOrder:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 24px rgba(16,185,129,0.4);
+}
+
+.muted{
+color:#a39e96;
+font-size:12px;
+margin:0 0 20px 0;
+font-weight:400;
+padding:0 18px;
+}
+</style>
+
+<script>
+function filterProducts(){
+  const q = (document.getElementById('search').value || '').toLowerCase();
+  const cat = (document.getElementById('category').value || 'all').toLowerCase();
+  const cards = document.getElementsByClassName('card');
+
+  for(let i=0;i<cards.length;i++){
+    const name = (cards[i].getAttribute('data-name') || '').toLowerCase();
+    const c = (cards[i].getAttribute('data-category') || '').toLowerCase();
+
+    const okName = !q || name.includes(q);
+    const okCat = (cat === 'all') || (c === cat);
+
+    cards[i].style.display = (okName && okCat) ? "block" : "none";
+  }
+}
+</script>
+
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">🛍️ Khalid Store</div>
+
+  <div>
+    <a href="/cart">Cart</a>
+    <a href="{{ url_for('tiktok_page') }}">TikTok</a>
+    <a href="{{ url_for('login') }}">Admin Login</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="title">
+    <h2>Our Products</h2>
+
+    <div class="trust">
+      <span>✅ Cash on Delivery</span>
+      <span>🚚 Delivery 2–4 Days</span>
+      <span>🔄 Easy Exchange</span>
+    </div>
+
+    <div class="filters">
+      <input id="search" type="text" placeholder="Search products..." onkeyup="filterProducts()">
+
+      <select id="category" onchange="filterProducts()">
+        <option value="all">All Categories</option>
+        {% for c in categories %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <p class="muted">
+      Order instantly with COD or add multiple items to your cart.
+    </p>
+  </div>
+<div style="text-align:center; margin-bottom:20px;">
+    <input type="text" id="searchInput" placeholder="Search product..." style="padding:8px; width:200px;">
+    
+    <select id="categoryFilter" style="padding:8px;">
+        <option value="">All Categories</option>
+        <option value="Bag">Bag</option>
+        <option value="Suit">Suit</option>
+    </select>
+</div>
+  
+<div class="grid">
+    {% for p in products %}
+    <div class="card" data-name="{{ p.get('name','') }}" data-category="{{ p.get('category','') }}">
+
+      <img src="{{ url_for('static', filename='images/' ~ (p.get('image') or 'no-image.png')) }}"
+           alt="{{ p.get('name','') }}"
+           onerror="this.src='{{ url_for('static', filename='images/no-image.png') }}'">
+
+      <h3>{{ p.get('name','') }}</h3>
+
+      <p class="price">Rs {{ p.get('price','') }}</p>
+
+      <a class="btn btnCart" href="/cart/add/{{ p.code }}" class="btn btn-primary">
+Add to Cart
+</a>
+      <a class="btn btnOrder" href="{{ url_for('order_form', code=p.get('code')) }}">Order Now</a>
+
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+
+searchInput.addEventListener("keyup", filterProducts);
+categoryFilter.addEventListener("change", filterProducts);
+
+function filterProducts() {
+    const searchValue = searchInput.value.toLowerCase();
+    const categoryValue = categoryFilter.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const name = card.querySelector("h3").innerText.toLowerCase();
+        const category = card.querySelector("p").innerText.toLowerCase();
+
+        if (
+            name.includes(searchValue) &&
+            (categoryValue === "" || category.includes(categoryValue))
+        ) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

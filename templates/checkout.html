@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* General reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f1f5f9; }
+
+    /* Header */
+    .header {
+      background: #0f172a;
+      color: #fff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 14px;
+      font-weight: bold;
+      opacity: 0.9;
+    }
+    .header a:hover { opacity: 1; }
+
+    /* Main wrapper */
+    .wrap {
+      max-width: 1000px;
+      margin: 22px auto;
+      padding: 0 12px;
+    }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Card */
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 20px;
+      width: 100%;
+    }
+
+    /* Inputs */
+    .input {
+      width: 100%;
+      max-width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      margin: 8px 0;
+      font-size: 15px;
+      resize: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      flex: 1 1 45%;
+    }
+    .b1 { background: #2563eb; }
+    .b2 { background: #16a34a; }
+    .b3 { background: #111827; }
+
+    form div.btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #f1f5f9;
+      text-align: left;
+      font-size: 14px;
+    }
+    th { background: #f8fafc; }
+    .muted { color: #64748b; }
+    .total { font-size: 18px; font-weight: bold; margin-top: 10px; }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px){
+      .btn { width: 100%; }
+      .input, textarea { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div><b>Checkout</b></div>
+  <div>
+    <a href="/cart">Cart</a>
+    <a href="/products">Public Store</a>
+    <a href="/tiktok">TikTok Store</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="grid">
+    <!-- Customer Details Form -->
+    <div class="card">
+      <h3 style="margin-bottom:12px">Customer Details</h3>
+      <form method="POST" action="/checkout">
+        <input class="input" name="name" placeholder="Full Name" required>
+        <input class="input" name="phone" placeholder="Phone (03xxxxxxxxx)" required>
+        <textarea class="input" name="address" placeholder="Complete Address" rows="4" required></textarea>
+
+        <div class="btn-group">
+          <a class="btn b3" href="/cart">Back to Cart</a>
+          <button class="btn b2" type="submit">Place Order (WhatsApp)</button>
+        </div>
+
+        <p class="muted" style="font-size:13px;margin-top:10px">
+          After placing order, WhatsApp will open with a confirmation message. Please click Send.
+        </p>
+      </form>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="card">
+      <h3 style="margin-bottom:12px">Order Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for it in cart_items %}
+          <tr>
+            <td><b>{{ it.name }}</b><br><span class="muted" style="font-size:12px">({{ it.code }})</span></td>
+            <td>{{ it.qty }}</td>
+            <td>Rs {{ '%.0f'|format(it.line_total) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="total">Total Qty: {{ total_qty }}</div>
+      <div class="total">Total: Rs {{ '%.0f'|format(total_price) }}</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

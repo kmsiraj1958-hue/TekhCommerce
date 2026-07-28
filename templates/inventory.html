@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Summary</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f7fb; padding:20px; }
+        h2 { margin-bottom:15px; }
+        .btn {
+            display:inline-block;
+            padding:10px 16px;
+            background:#10b981;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+        th, td {
+            border:1px solid #d1d5db;
+            padding:10px;
+            text-align:left;
+            font-size:14px;
+        }
+        th {
+            background:#f1f5f9;
+        }
+        .low {
+            background:#fff7ed;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Inventory Summary</h2>
+
+<a class="btn" href="{{ url_for('inventory_entry') }}">Add Inventory Entry</a>
+
+<table>
+    <tr>
+        <th>Code</th>
+        <th>Product</th>
+        <th>Opening</th>
+        <th>Stock In</th>
+        <th>Dispatch</th>
+        <th>Return</th>
+        <th>Damage</th>
+        <th>Balance</th>
+    </tr>
+
+    {% for code, r in summary.items() %}
+    <tr class="{% if r.balance <= r.reorder_level %}low{% endif %}">
+        <td>{{ code }}</td>
+        <td>{{ r.name }}</td>
+        <td>{{ r.opening }}</td>
+        <td>{{ r.stock_in }}</td>
+        <td>{{ r.dispatch }}</td>
+        <td>{{ r.return_in }}</td>
+        <td>{{ r.damage }}</td>
+        <td><b>{{ r.balance }}</b></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

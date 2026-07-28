@@ -1,0 +1,450 @@
+[
+    {
+        "code": "SWW-302",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Maroon",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.54_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-301",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Zinc",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.54_PM.jpeg"
+    },
+    {
+        "code": "SWW-304",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Grey",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.55_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-305",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Brown",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.55_PM_2.jpeg"
+    },
+    {
+        "code": "SWW-303",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Light Grey",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.55_PM.jpeg"
+    },
+    {
+        "code": "SWW-306",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.56_PM.jpeg"
+    },
+    {
+        "code": "SWW-402",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Golden Brown",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.57_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-403",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Olive Green",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.57_PM_2.jpeg"
+    },
+    {
+        "code": "SWW-401",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "White",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.57_PM.jpeg"
+    },
+    {
+        "code": "SWW-404",
+        "name": "Premium Wash N Wear",
+        "price": "2550",
+        "color": "Olive",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.58_PM.jpeg"
+    },
+    {
+        "code": "SBB-002",
+        "name": "Premium Boski",
+        "price": "3400",
+        "color": "White",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.59_PM_1.jpeg"
+    },
+    {
+        "code": "SBB-001",
+        "name": "Premium Boski",
+        "price": "3400",
+        "color": "Motiya",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.59_PM.jpeg"
+    },
+    {
+        "code": "SWW-101",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "Navy Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.49_PM.jpeg"
+    },
+    {
+        "code": "SWW-102",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "White",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.50_PM.jpeg"
+    },
+    {
+        "code": "SWW-103",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "Black",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.50_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-104",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "Ice Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.50_PM_2.jpeg"
+    },
+    {
+        "code": "SWW-105",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.51_PM.jpeg"
+    },
+    {
+        "code": "SWW-106",
+        "name": "Premium Wash N Wear",
+        "price": "3500",
+        "color": "Dark Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.51_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-202",
+        "name": "Premium Wash N Wear",
+        "price": "2500",
+        "color": "Beige",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.52_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-201",
+        "name": "Premium Wash N Wear",
+        "price": "2500",
+        "color": "Teal",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.52_PM.jpeg"
+    },
+    {
+        "code": "SWW-204",
+        "name": "Premium Wash N Wear",
+        "price": "2500",
+        "color": "Greyish Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.53_PM_1.jpeg"
+    },
+    {
+        "code": "SWW-205",
+        "name": "Premium Wash N Wear",
+        "price": "2500",
+        "color": "Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.53_PM_2.jpeg"
+    },
+    {
+        "code": "SWW-203",
+        "name": "Premium Wash N Wear",
+        "price": "2500",
+        "color": "Light Blue",
+        "image": "WhatsApp_Image_2026-01-02_at_6.23.53_PM.jpeg"
+    },
+    {
+        "code": "VCK-001",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "White",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.07_PM.jpeg"
+    },
+    {
+        "code": "VCK-003",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Navy Blue",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.08_PM_1.jpeg"
+    },
+    {
+        "code": "VCK-005",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Golden Brown",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.08_PM_2.jpeg"
+    },
+    {
+        "code": "VCK-002",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Black",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.08_PM.jpeg"
+    },
+    {
+        "code": "VCK-011",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Light Grey",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.09_PM_1.jpeg"
+    },
+    {
+        "code": "VCK-012",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Teal",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.09_PM_2.jpeg"
+    },
+    {
+        "code": "VCK-007",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Forest Brown",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.09_PM.jpeg"
+    },
+    {
+        "code": "VCK-008",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Olive Green",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.10_PM_1.jpeg"
+    },
+    {
+        "code": "VCK-004",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Light Blue",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.10_PM.jpeg"
+    },
+    {
+        "code": "VCK-",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Blue",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.11_PM_1.jpeg"
+    },
+    {
+        "code": "VCK-006",
+        "name": "High Quality Khaddar",
+        "price": "2550",
+        "color": "Beige",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.11_PM.jpeg"
+    },
+    {
+        "code": "VPK-201",
+        "name": "High Quality Khaddar",
+        "price": "2650",
+        "color": "Light Fawn",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.15_PM.jpeg"
+    },
+    {
+        "code": "VPK-208",
+        "name": "High Quality Khaddar",
+        "price": "2650",
+        "color": "Light Grey",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.16_PM_1.jpeg"
+    },
+    {
+        "code": "VPK-203",
+        "name": "High Quality Khaddar",
+        "price": "2650",
+        "color": "White",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.16_PM.jpeg"
+    },
+    {
+        "code": "VPK-",
+        "name": "High Quality Khaddar",
+        "price": "2650",
+        "color": "Blue",
+        "image": "WhatsApp_Image_2026-01-31_at_5.13.17_PM.jpeg"
+    },
+    {
+        "code": "VLK-111",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Dotted Skin ",
+        "image": "Dotted_skin.jpeg"
+    },
+    {
+        "code": "VLK-109",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Grey",
+        "image": "VLK_2.jpeg"
+    },
+    {
+        "code": "VLK-101",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "White",
+        "image": "VLK_3.jpeg"
+    },
+    {
+        "code": "VLK-",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Textured Grey",
+        "image": "VLK_4.jpeg"
+    },
+    {
+        "code": "SSL-103",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Bluish Grey",
+        "image": "VLK_5.jpeg"
+    },
+    {
+        "code": "VLK-",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Light Blue",
+        "image": "VLK_6.jpeg"
+    },
+    {
+        "code": "VLK-110",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Pink",
+        "image": "VLK_7.jpeg"
+    },
+    {
+        "code": "VLK-",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Light Grey",
+        "image": "VLK_8.jpeg"
+    },
+    {
+        "code": "VLK-",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Dark Grey",
+        "image": "VLK_9.jpeg"
+    },
+    {
+        "code": "VLK-108",
+        "name": "High Quality Khaddar",
+        "price": "1950",
+        "color": "Red",
+        "image": "VLK_10.jpeg"
+    },
+    {
+        "code": "VB-001",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Chocolate Brown",
+        "image": "bag-2150_1.jpeg"
+    },
+    {
+        "code": "VB-002",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Grey",
+        "image": "bag-2150_2.jpeg"
+    },
+    {
+        "code": "VB-003",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Red",
+        "image": "bag-2150_3.jpeg"
+    },
+    {
+        "code": "VB-004",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Greyish Blue",
+        "image": "bag-2150_4.jpeg"
+    },
+    {
+        "code": "VB-005",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Green",
+        "image": "bag-2150_5.jpeg"
+    },
+    {
+        "code": "VB-006",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Black",
+        "image": "bag-2150_6.jpeg"
+    },
+    {
+        "code": "VB-007",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Beige",
+        "image": "bag-2150_7.jpeg"
+    },
+    {
+        "code": "VB-008",
+        "name": "Shoulder Bag",
+        "price": "2150",
+        "color": "Pink",
+        "image": "bag-2150_8.jpeg"
+    },
+    {
+        "code": "VB-101",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Blue",
+        "image": "2250_1.jpeg"
+    },
+    {
+        "code": "VB-102",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Black",
+        "image": "2250_2.jpeg"
+    },
+    {
+        "code": "VB-103",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Mustard",
+        "image": "2250_3.jpeg"
+    },
+    {
+        "code": "VB-104",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Beige",
+        "image": "2250_4.jpeg"
+    },
+    {
+        "code": "VB-105",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Pink",
+        "image": "2250_5.jpeg"
+    },
+    {
+        "code": "VB-106",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Grey",
+        "image": "2250_7.jpeg"
+    },
+    {
+        "code": "VB-107",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Red",
+        "image": "2250_8.jpeg"
+    },
+    {
+        "code": "VB-108",
+        "name": "Shoulder Bag",
+        "price": "2250",
+        "color": "Brown",
+        "image": "2250_9.jpeg"
+    }
+]

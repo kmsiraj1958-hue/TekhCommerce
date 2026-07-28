@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Product</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:#f5f6fa;
+  color:#333;
+}
+
+.container{
+  max-width:600px;
+  margin:40px auto;
+  background:#fff;
+  padding:30px 25px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+
+.top a{
+  text-decoration:none;
+  font-weight:600;
+  color:#4a90e2;
+}
+
+.top a:hover{
+  color:#1e70bf;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:24px;
+  font-weight:700;
+}
+
+label{
+  display:block;
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:18px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:14px;
+  transition:0.2s;
+}
+
+input:focus{
+  border-color:#4a90e2;
+  box-shadow:0 0 5px rgba(74,144,226,0.3);
+  outline:none;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+button{
+  width:100%;
+  background:#4a90e2;
+  color:#fff;
+  padding:13px;
+  font-size:16px;
+  font-weight:600;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#357ABD;
+}
+
+.preview{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.preview img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #eee;
+}
+
+.muted{
+  font-size:12px;
+  color:#777;
+}
+
+#newPreview{
+  width:120px;
+  height:120px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  object-fit:cover;
+  display:none;
+  margin-top:10px;
+}
+
+@media(max-width:480px){
+  .row{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="top">
+<a href="{{ url_for('admin') }}">← Back</a>
+<a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<h2>✏️ Edit Product</h2>
+
+<div class="preview">
+<img src="{{ url_for('static', filename='images/' ~ (product.get('image') or 'no-image.png')) }}"
+onerror="this.src='{{ url_for('static', filename='images/no-image.png') }}'">
+
+<div>
+<div><b>Code:</b> {{ product.get('code','') }}</div>
+<div class="muted">Upload a new image only if you want to replace the current one.</div>
+</div>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>Product Name</label>
+<input type="text" name="name" value="{{ product.get('name','') }}" required>
+
+<div class="row">
+
+<div>
+<label>Price (Rs)</label>
+<input type="number" name="price" value="{{ product.get('price','') }}" required>
+</div>
+
+<div>
+<label>Cost (Rs)</label>
+<input type="number" name="cost" value="{{ product.get('cost','') }}">
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+<label>Opening Stock</label>
+<input type="number" name="opening_stock" value="{{ product.get('opening_stock','0') }}">
+</div>
+
+<div>
+<label>Reorder Level</label>
+<input type="number" name="reorder_level" value="{{ product.get('reorder_level','3') }}">
+</div>
+
+</div>
+
+<label>Category</label>
+<input type="text" name="category" value="{{ product.get('category','') }}">
+
+<label>Replace Image</label>
+<input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" onchange="previewNewImage(event)">
+
+<img id="newPreview">
+
+<button type="submit">Update Product</button>
+
+</form>
+
+</div>
+
+<script>
+function previewNewImage(event){
+  const preview=document.getElementById("newPreview");
+  const file=event.target.files[0];
+
+  if(file){
+    preview.src=URL.createObjectURL(file);
+    preview.style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>

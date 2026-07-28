@@ -1,0 +1,13 @@
+{
+  "productName": "TekhShopify",
+  "nextDueDate": "2026-07-18",
+  "graceDays": 4,
+  "noticeDaysBefore": 7,
+  "billingCycleDays": 30,
+  "amount": 0,
+  "currency": "PKR",
+  "contactEmail": "billing@tekhtalent.com",
+  "contactPhone": "+92-300-0000000",
+  "lastPaidAt": null,
+  "clientName": ""
+}

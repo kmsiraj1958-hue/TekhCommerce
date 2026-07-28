@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Packing Slip</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    padding:20px;
+}
+
+.slip{
+    width:600px;
+    border:2px solid black;
+    padding:20px;
+}
+
+h2{
+    margin:0;
+}
+
+.row{
+    margin-top:10px;
+}
+
+.label{
+    font-weight:bold;
+}
+
+.print-btn{
+    margin-bottom:20px;
+}
+
+@media print{
+    .print-btn{
+        display:none;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button class="print-btn" onclick="window.print()">Print</button>
+
+<div class="slip">
+
+<h2>{{ order.get("store") }} Dispatch Slip</h2>
+
+<div class="row">
+<span class="label">Date:</span>
+{{ order.get("created_at") }}
+</

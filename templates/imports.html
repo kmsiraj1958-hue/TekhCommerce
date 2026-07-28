@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Imports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family:Arial;background:#f1f5f9;margin:0}
+    .header{background:#0f172a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .header a{color:#fff;text-decoration:none;margin-left:14px;font-weight:bold;opacity:.9}
+    .wrap{max-width:1200px;margin:18px auto;padding:0 12px}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}
+    th,td{padding:10px;border-bottom:1px solid #f1f5f9;font-size:14px;vertical-align:top}
+    th{background:#f8fafc;text-align:left}
+    .btn{display:inline-block;padding:8px 12px;border-radius:12px;text-decoration:none;color:#fff;background:#dc2626;font-size:13px}
+    .b2{background:#111827}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div><b>Daily Import History</b></div>
+  <div>
+    <a href="/admin">Admin</a>
+    <a href="/rebuild-mnp" class="b2" style="padding:8px 12px;border-radius:12px;">Rebuild MNP</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Store</th>
+        <th>Filename</th>
+        <th>Imported At</th>
+        <th>Rows</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in logs %}
+      <tr>
+        <td><b>{{ x.get("store") }}</b></td>
+        <td>{{ x.get("filename") }}</td>
+        <td>{{ x.get("imported_at") }}</td>
+        <td>{{ x.get("rows_count") }}</td>
+        <td>
+          <a class="btn" href="/delete-import/{{ x.get('id') }}"
+             onclick="return confirm('Delete this import? After deleting, click Rebuild MNP to refresh orders.')">
+            Delete
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+      {% if logs|length == 0 %}
+      <tr><td colspan="5">No imports found.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

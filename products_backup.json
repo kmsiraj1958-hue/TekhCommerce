@@ -1,0 +1,432 @@
+[
+    {
+        "code": "P014",
+        "name": "Ladies Designer Purse ",
+        "price": "1850",
+        "color": "Black",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (1).jpeg"
+    },
+    {
+        "code": "P015",
+        "name": "Ladies Designer Purse ",
+        "price": "1900",
+        "color": "Brown",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (2).jpeg"
+    },
+    {
+        "code": "P016",
+        "name": "Ladies Designer Purse 4",
+        "price": "1950",
+        "color": "Beige",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (3).jpeg"
+    },
+    {
+        "code": "P017",
+        "name": "Ladies Evening Purse 1",
+        "price": "2000",
+        "color": "Gold",
+        "category": "Ladies Purse",
+        "image": "purse5.jpg"
+    },
+    {
+        "code": "P018",
+        "name": "Classic T-Shirt 1",
+        "price": "950",
+        "color": "White",
+        "category": "T-Shirts",
+        "image": "tshirt1.jpg"
+    },
+    {
+        "code": "P019",
+        "name": "Classic T-Shirt 2",
+        "price": "900",
+        "color": "Black",
+        "category": "T-Shirts",
+        "image": "tshirt2.jpg"
+    },
+    {
+        "code": "P020",
+        "name": "Graphic T-Shirt 1",
+        "price": "1000",
+        "color": "Blue",
+        "category": "T-Shirts",
+        "image": "tshirt3.jpg"
+    },
+    {
+        "code": "P021",
+        "name": "Graphic T-Shirt 2",
+        "price": "1050",
+        "color": "Grey",
+        "category": "T-Shirts",
+        "image": "tshirt4.jpg"
+    },
+    {
+        "code": "P022",
+        "name": "V-Neck T-Shirt 1",
+        "price": "950",
+        "color": "White",
+        "category": "T-Shirts",
+        "image": "tshirt5.jpg"
+    },
+    {
+        "code": "P023",
+        "name": "V-Neck T-Shirt 2",
+        "price": "900",
+        "color": "Black",
+        "category": "T-Shirts",
+        "image": "tshirt6.jpg"
+    },
+    {
+        "code": "P024",
+        "name": "Formal Trousers 1",
+        "price": "1500",
+        "color": "Black",
+        "category": "Trousers",
+        "image": "trousers1.jpg"
+    },
+    {
+        "code": "P025",
+        "name": "Formal Trousers 2",
+        "price": "1550",
+        "color": "Grey",
+        "category": "Trousers",
+        "image": "trousers2.jpg"
+    },
+    {
+        "code": "P026",
+        "name": "Casual Trousers 1",
+        "price": "1400",
+        "color": "Beige",
+        "category": "Trousers",
+        "image": "trousers3.jpg"
+    },
+    {
+        "code": "P027",
+        "name": "Casual Trousers 2",
+        "price": "1450",
+        "color": "Blue",
+        "category": "Trousers",
+        "image": "trousers4.jpg"
+    },
+    {
+        "code": "P028",
+        "name": "Slim Fit Trousers",
+        "price": "1500",
+        "color": "Black",
+        "category": "Trousers",
+        "image": "trousers5.jpg"
+    },
+    {
+        "code": "P029",
+        "name": "Luxury Perfume 1",
+        "price": "3200",
+        "color": "Gold",
+        "category": "Perfumes",
+        "image": "perfume1.jpg"
+    },
+    {
+        "code": "P030",
+        "name": "Luxury Perfume 2",
+        "price": "3250",
+        "color": "Silver",
+        "category": "Perfumes",
+        "image": "perfume2.jpg"
+    },
+    {
+        "code": "P031",
+        "name": "Signature Perfume 1",
+        "price": "3500",
+        "color": "Amber",
+        "category": "Perfumes",
+        "image": "perfume3.jpg"
+    },
+    {
+        "code": "P032",
+        "name": "Signature Perfume 2",
+        "price": "3600",
+        "color": "Gold",
+        "category": "Perfumes",
+        "image": "perfume4.jpg"
+    },
+    {
+        "code": "P033",
+        "name": "Classic Perfume 1",
+        "price": "3000",
+        "color": "Silver",
+        "category": "Perfumes",
+        "image": "perfume5.jpg"
+    },
+    {
+        "code": "P034",
+        "name": "Classic Perfume 2",
+        "price": "3050",
+        "color": "Amber",
+        "category": "Perfumes",
+        "image": "perfume6.jpg"
+    },
+    {
+        "code": "P035",
+        "name": "Premium Wash N Wear 3",
+        "price": "2600",
+        "color": "Navy",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash7.jpg"
+    },
+    {
+        "code": "P036",
+        "name": "Premium Wash N Wear 4",
+        "price": "2650",
+        "color": "Sky Blue",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash8.jpg"
+    },
+    {
+        "code": "P037",
+        "name": "Kamalia Khaddar Summer 7",
+        "price": "2450",
+        "color": "Blue",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia7.jpg"
+    },
+    {
+        "code": "P038",
+        "name": "Kamalia Khaddar Summer 8",
+        "price": "2500",
+        "color": "Grey",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia8.jpg"
+    },
+    {
+        "code": "P039",
+        "name": "Ladies Purse 5",
+        "price": "2000",
+        "color": "Black",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (5).jpeg"
+    },
+    {
+        "code": "P040",
+        "name": "Ladies Purse 6",
+        "price": "2100",
+        "color": "Brown",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (4).jpeg"
+    },
+    {
+        "code": "P041",
+        "name": "T-Shirt 7",
+        "price": "950",
+        "color": "Red",
+        "category": "T-Shirts",
+        "image": "tshirt7.jpg"
+    },
+    {
+        "code": "P042",
+        "name": "T-Shirt 8",
+        "price": "970",
+        "color": "Grey",
+        "category": "T-Shirts",
+        "image": "tshirt8.jpg"
+    },
+    {
+        "code": "P043",
+        "name": "Trousers 6",
+        "price": "1450",
+        "color": "Beige",
+        "category": "Trousers",
+        "image": "trousers6.jpg"
+    },
+    {
+        "code": "P044",
+        "name": "Trousers 7",
+        "price": "1500",
+        "color": "Grey",
+        "category": "Trousers",
+        "image": "trousers7.jpg"
+    },
+    {
+        "code": "P045",
+        "name": "Perfume 7",
+        "price": "3150",
+        "color": "Gold",
+        "category": "Perfumes",
+        "image": "perfume7.jpg"
+    },
+    {
+        "code": "P046",
+        "name": "Perfume 8",
+        "price": "3250",
+        "color": "Silver",
+        "category": "Perfumes",
+        "image": "perfume8.jpg"
+    },
+    {
+        "code": "P047",
+        "name": "Wash N Wear 5",
+        "price": "2700",
+        "color": "Beige",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash9.jpg"
+    },
+    {
+        "code": "P048",
+        "name": "Wash N Wear 6",
+        "price": "2750",
+        "color": "Black",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash10.jpg"
+    },
+    {
+        "code": "P049",
+        "name": "Kamalia Khaddar 9",
+        "price": "2550",
+        "color": "White",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia9.jpg"
+    },
+    {
+        "code": "P050",
+        "name": "Kamalia Khaddar 10",
+        "price": "2600",
+        "color": "Beige",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia10.jpg"
+    },
+    {
+        "code": "P051",
+        "name": "Ladies Purse 7",
+        "price": "2200",
+        "color": "Red",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (6).jpeg"
+    },
+    {
+        "code": "P052",
+        "name": "Ladies Purse 8",
+        "price": "2300",
+        "color": "Gold",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM.jpeg"
+    },
+    {
+        "code": "P053",
+        "name": "T-Shirt 9",
+        "price": "980",
+        "color": "White",
+        "category": "T-Shirts",
+        "image": "tshirt9.jpg"
+    },
+    {
+        "code": "P054",
+        "name": "T-Shirt 10",
+        "price": "990",
+        "color": "Black",
+        "category": "T-Shirts",
+        "image": "tshirt10.jpg"
+    },
+    {
+        "code": "P055",
+        "name": "Trousers 8",
+        "price": "1520",
+        "color": "Grey",
+        "category": "Trousers",
+        "image": "trousers8.jpg"
+    },
+    {
+        "code": "P056",
+        "name": "Trousers 9",
+        "price": "1550",
+        "color": "Black",
+        "category": "Trousers",
+        "image": "trousers9.jpg"
+    },
+    {
+        "code": "P057",
+        "name": "Perfume 9",
+        "price": "3300",
+        "color": "Amber",
+        "category": "Perfumes",
+        "image": "perfume9.jpg"
+    },
+    {
+        "code": "P058",
+        "name": "Perfume 10",
+        "price": "3350",
+        "color": "Gold",
+        "category": "Perfumes",
+        "image": "perfume10.jpg"
+    },
+    {
+        "code": "P059",
+        "name": "Wash N Wear 7",
+        "price": "2800",
+        "color": "Grey",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash11.jpg"
+    },
+    {
+        "code": "P060",
+        "name": "Wash N Wear 8",
+        "price": "2850",
+        "color": "Blue",
+        "category": "Wash N Wear Gents Suiting",
+        "image": "wash12.jpg"
+    },
+    {
+        "code": "P061",
+        "name": "Kamalia Khaddar 11",
+        "price": "2650",
+        "color": "Black",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia11.jpg"
+    },
+    {
+        "code": "P062",
+        "name": "Kamalia Khaddar 12",
+        "price": "2700",
+        "color": "Blue",
+        "category": "Kamalia Khaddar Gents Suiting Summer",
+        "image": "kamalia12.jpg"
+    },
+    {
+        "code": "P063",
+        "name": "Ladies Purse 9",
+        "price": "2400",
+        "color": "Brown",
+        "category": "Ladies Purse",
+        "image": "WhatsApp Image 2026-01-31 at 5.22.01 PM (7).jpeg"
+    },
+    {
+        "code": "P064",
+        "name": "T-Shirt 11",
+        "price": "1000",
+        "color": "Grey",
+        "category": "T-Shirts",
+        "image": "tshirt11.jpg"
+    },
+    {
+        "code": "P065",
+        "name": "Trousers 10",
+        "price": "1580",
+        "color": "Beige",
+        "category": "Trousers",
+        "image": "trousers10.jpg"
+    },
+    {
+        "name": "test",
+        "code": "sww-222",
+        "price": "3000",
+        "category": "wash n wear",
+        "image": "images.jpg"
+    },
+    {
+        "name": "Wash N Wear 1",
+        "code": "SWW-104",
+        "price": "3500",
+        "category": "wash n wear",
+        "image": "WhatsApp Image 2026-01-02 at 6.23.42 PM (2).jpeg"
+    }
+]

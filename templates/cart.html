@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family:Arial;background:#f1f5f9;margin:0}
+    .header{background:#0f172a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .header a{color:#fff;text-decoration:none;margin-left:14px;font-weight:bold;opacity:.9}
+    .header a:hover{opacity:1}
+    .wrap{max-width:1000px;margin:22px auto;padding:0 12px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);padding:16px;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px;border-bottom:1px solid #f1f5f9;text-align:left;font-size:14px;vertical-align:middle}
+    th{background:#f8fafc}
+    .img{width:56px;height:56px;object-fit:cover;border-radius:12px;border:1px solid #eee}
+    .qty{width:70px;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;color:#fff;font-size:14px}
+    .b1{background:#2563eb}
+    .b2{background:#16a34a}
+    .b3{background:#111827}
+    .danger{background:#dc2626}
+    .muted{color:#64748b}
+    .total{font-size:18px;font-weight:bold}
+    .small{font-size:13px;color:#64748b}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div><b>Cart</b></div>
+  <div>
+    <a href="/products">Public Store</a>
+    <a href="/tiktok">TikTok Store</a>
+    <a href="/track">Tracking</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <div class="total">Items in Cart: {{ total_qty }}</div>
+        <div class="small">Total Amount: Rs {{ '%.0f'|format(total_price) }}</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn b3" href="/products">Continue Shopping</a>
+        <a class="btn b2" href="/checkout">Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  {% if not cart_items %}
+    <div class="card">
+      <p class="muted">Your cart is empty.</p>
+      <a class="btn b1" href="/products">Go to Store</a>
+    </div>
+  {% else %}
+
+    <form class="card" method="POST" action="/cart/update">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for it in cart_items %}
+          <tr>
+            <td>
+              <div style="display:flex;gap:10px;align-items:center">
+                {% if it.image %}
+                  <img class="img" src="{{ url_for('static', filename='images/' ~ it.image) }}">
+                {% else %}
+                  <div class="img" style="display:flex;align-items:center;justify-content:center;color:#94a3b8">No</div>
+                {% endif %}
+                <div>
+                  <b>{{ it.name }}</b><br>
+                  <span class="small">Code: {{ it.code }}</span>
+                </div>
+              </div>
+            </td>
+            <td>Rs {{ '%.0f'|format(it.price) }}</td>
+            <td>
+              <input class="qty" type="number" min="1" name="qty_{{ it.code }}" value="{{ it.qty }}">
+            </td>
+            <td>Rs {{ '%.0f'|format(it.line_total) }}</td>
+            <td>
+              <a class="btn danger" style="padding:8px 12px" href="/cart/remove/{{ it.code }}">Remove</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="row" style="margin-top:14px">
+        <div class="muted">Update quantities then click Save.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn b1" type="submit">Save Changes</button>
+          <a class="btn b2" href="/checkout">Checkout</a>
+        </div>
+      </div>
+    </form>
+
+  {% endif %}
+
+</div>
+</body>
+</html>

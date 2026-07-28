@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Courier Balance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f7fb;
+      padding:20px;
+      color:#1f2937;
+      margin:0;
+    }
+
+    h2{
+      margin-bottom:20px;
+    }
+
+    .panel{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+
+    .filters{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:end;
+    }
+
+    .input, .select{
+      padding:10px 12px;
+      border:1px solid #d1d5db;
+      border-radius:10px;
+      font-size:14px;
+      min-width:180px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border:none;
+      border-radius:10px;
+      background:#2563eb;
+      color:#fff;
+      text-decoration:none;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .btn.secondary{
+      background:#475569;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-bottom:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:18px;
+      border-radius:14px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:14px;
+      color:#64748b;
+      text-transform:uppercase;
+    }
+
+    .card .value{
+      font-size:28px;
+      font-weight:700;
+      color:#111827;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    th,td{
+      padding:12px;
+      border-bottom:1px solid #e5e7eb;
+      text-align:left;
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    th{
+      background:#f1f5f9;
+      font-weight:700;
+    }
+
+    tr:hover td{
+      background:#f8fafc;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h2>Courier Balance</h2>
+    <a href="/admin" class="btn secondary">Back to Dashboard</a>
+  </div>
+
+  <div class="panel">
+    <form method="GET" action="/courier-balance" class="filters">
+      <div>
+        <label>Store</label><br>
+        <select name="store" class="select">
+          <option value="">All Stores</option>
+          <option value="SNS" {% if store_filter == "SNS" %}selected{% endif %}>SNS</option>
+          <option value="VOGUE" {% if store_filter == "VOGUE" %}selected{% endif %}>VOGUE</option>
+        </select>
+      </div>
+
+      <div>
+        <label>From Date</label><br>
+        <input type="date" name="from_date" class="input" value="{{ from_date }}">
+      </div>
+
+      <div>
+        <label>To Date</label><br>
+        <input type="date" name="to_date" class="input" value="{{ to_date }}">
+      </div>
+
+      <div>
+        <button type="submit" class="btn">Filter</button>
+      </div>
+
+      <div>
+        <a href="/courier-balance" class="btn secondary">Reset</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total COD Amount</h3>
+      <div class="value">Rs {{ summary.total_cod }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Courier Charges</h3>
+      <div class="value">Rs {{ summary.courier_charges }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Return Charges</h3>
+      <div class="value">Rs {{ summary.return_charges }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Withholding Tax</h3>
+      <div class="value">Rs {{ summary.withholding_tax }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Expected Net Payable</h3>
+      <div class="value">Rs {{ summary.expected_net }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Bank Payment Received</h3>
+      <div class="value">Rs {{ summary.bank_paid }}</div>
+    </div>
+
+    <div class="card">
+      <h3>Difference</h3>
+      <div class="value">Rs {{ summary.difference }}</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Store</th>
+        <th>Paid On</th>
+        <th>Payment ID</th>
+        <th>Total COD</th>
+        <th>Courier Charges</th>
+        <th>Return Charges</th>
+        <th>WHT</th>
+        <th>Expected Net</th>
+        <th>Bank Paid</th>
+        <th>Difference</th>
+        <th>Instrument Number</th>
+      </tr>
+
+      {% for r in rows %}
+      <tr>
+        <td>{{ r.store }}</td>
+        <td>{{ r.paid_on }}</td>
+        <td>{{ r.payment_id }}</td>
+        <td>Rs {{ r.cod_amount }}</td>
+        <td>Rs {{ r.courier_charges }}</td>
+        <td>Rs {{ r.return_charges }}</td>
+        <td>Rs {{ r.withholding_tax }}</td>
+        <td>Rs {{ r.expected_net }}</td>
+        <td>Rs {{ r.bank_paid }}</td>
+        <td><b>Rs {{ r.difference }}</b></td>
+        <td>{{ r.instrument_number }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+</body>
+</html>

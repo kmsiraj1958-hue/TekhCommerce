@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Order</title>
+  <style>
+    body{font-family:Arial;background:#f1f3f6;margin:0}
+    .box{max-width:650px;margin:30px auto;background:#fff;padding:18px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    input{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin:8px 0}
+    button{background:#111;color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer}
+    .tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#eee;font-size:13px}
+    .row{margin-top:10px}
+    ul{margin:8px 0 0 18px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Track Your Order</h2>
+
+    <form method="POST">
+      <input name="order_id" placeholder="Enter Order ID (e.g. ORD-0001)" required>
+      <button type="submit">Track</button>
+    </form>
+
+    {% if result %}
+      {% set items_list = result.get('items', []) %}
+      <hr>
+      <div class="row"><b>Order ID:</b> {{ result.get('order_id') }}</div>
+      <div class="row"><b>Status:</b> <span class="tag">{{ result.get('status') }}</span></div>
+      {% if result.get('store') %}
+        <div class="row"><b>Store:</b> {{ result.get('store')|upper }}</div>
+      {% endif %}
+
+      <div class="row"><b>Product:</b> {{ result.get('product_name') }} ({{ result.get('product_code') }})</div>
+      <div class="row"><b>Total:</b> Rs {{ result.get('price') }}</div>
+      <div class="row"><b>Qty:</b> {{ result.get('qty') or 1 }}</div>
+
+      {% if items_list and (items_list|length > 1) %}
+        <div class="row"><b>Items:</b>
+          <ul>
+            {% for it in items_list %}
+              <li>{{ it.title }} ({{ it.sku }}) × {{ it.qty }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <div class="row"><b>Courier:</b> {{ result.get('courier') or '' }}</div>
+      <div class="row"><b>Tracking Number:</b> {{ result.get('tracking_number') or '' }}</div>
+      <div class="row"><b>Customer:</b> {{ result.get('customer_name') }}</div>
+
+    {% elif tried %}
+      <hr>
+      <div class="row">❌ Order not found. Please check your Order ID.</div>
+    {% endif %}
+  </div>
+</body>
+</html>

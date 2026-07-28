@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order - {{ product.get('name') }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{font-family:Arial;background:#f1f5f9;margin:0}
+    .wrap{max-width:600px;margin:20px auto;padding:0 12px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .img{width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:14px;background:#f8fafc}
+    .title{font-size:20px;font-weight:bold}
+    .sub{color:#64748b;margin-top:6px;font-size:14px}
+    label{display:block;margin-top:14px;font-size:13px;color:#334155;font-weight:bold}
+    input,textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid #d1d5db;font-size:14px;box-sizing:border-box}
+    .btn{margin-top:16px;width:100%;padding:12px;border-radius:12px;border:none;font-weight:bold;cursor:pointer;font-size:15px}
+    .btnOrder{background:#2563eb;color:#fff}
+    .btnCart{background:#16a34a;color:#fff}
+    .btnBack{background:#111827;color:#fff;text-decoration:none;display:block;text-align:center}
+    .total{margin-top:10px;font-weight:bold;font-size:16px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      {% if product.get('image') %}
+        <img class="img"
+             src="{{ url_for('static', filename='images/' ~ product.get('image')) }}"
+             onerror="this.src='{{ url_for('static', filename='images/no-image.png') }}'">
+      {% else %}
+        <img class="img"
+             src="{{ url_for('static', filename='images/no-image.png') }}">
+      {% endif %}
+
+      <div class="title">{{ product.get('name') }}</div>
+      <div class="sub">
+        Code: {{ product.get('code') }} |
+        Unit Price: Rs <span id="unitPrice">{{ product.get('price') }}</span>
+      </div>
+
+      <!-- ADD TO CART QUICK BUTTON -->
+      <a class="btn btnCart"
+         href="/cart/add/{{ product.get('code') }}">
+        Add to Cart Instead
+      </a>
+
+      <form method="POST">
+
+        <label>Your Name</label>
+        <input name="name" required>
+
+        <label>Phone</label>
+        <input name="phone" required placeholder="03xxxxxxxxx">
+
+        <label>Address</label>
+        <textarea name="address" rows="3" required></textarea>
+
+        <label>Quantity</label>
+        <input type="number" name="qty" id="qty" min="1" value="1" required oninput="updateTotal()">
+
+        <div class="total">
+          Total: Rs <span id="totalPrice">{{ product.get('price') }}</span>
+        </div>
+
+        <button class="btn btnOrder" type="submit">
+          Place Order (WhatsApp)
+        </button>
+
+      </form>
+
+      <a class="btn btnBack" href="/products" style="margin-top:10px;">
+        Back to Store
+      </a>
+
+    </div>
+  </div>
+
+<script>
+function updateTotal(){
+  const qty = parseInt(document.getElementById("qty").value || 1);
+  const price = parseFloat(document.getElementById("unitPrice").innerText || 0);
+  document.getElementById("totalPrice").innerText = qty * price;
+}
+</script>
+
+</body>
+</html>

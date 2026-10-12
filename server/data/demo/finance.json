@@ -1,0 +1,104 @@
+{
+    "accounts": [
+        {
+            "id": "acc-cash",
+            "code": "1000",
+            "name": "Cash",
+            "type": "asset"
+        },
+        {
+            "id": "acc-bank",
+            "code": "1100",
+            "name": "Bank Account",
+            "type": "asset"
+        },
+        {
+            "id": "acc-receivable",
+            "code": "1200",
+            "name": "Accounts Receivable",
+            "type": "asset"
+        },
+        {
+            "id": "acc-payable",
+            "code": "2000",
+            "name": "Accounts Payable",
+            "type": "liability"
+        },
+        {
+            "id": "acc-revenue",
+            "code": "4000",
+            "name": "Revenue",
+            "type": "income"
+        },
+        {
+            "id": "acc-expense",
+            "code": "5000",
+            "name": "Operating Expenses",
+            "type": "expense"
+        },
+        {
+            "id": "acc-salary",
+            "code": "5100",
+            "name": "Salaries & Wages",
+            "type": "expense"
+        }
+    ],
+    "entries": [
+        {
+            "id": "fin-demo-1",
+            "type": "income",
+            "accountId": "acc-bank",
+            "category": "Courier remittance",
+            "description": "DEMO recorded bank receipt (not equal to delivered sales)",
+            "amount": 43456,
+            "reference": "DEMO-RCPT-1",
+            "date": "2026-10-01",
+            "createdAt": "2026-10-01 12:00"
+        },
+        {
+            "id": "fin-demo-2",
+            "type": "income",
+            "accountId": "acc-cash",
+            "category": "Counter",
+            "description": "DEMO cash counter sale receipt",
+            "amount": 4500,
+            "reference": "DEMO-CASH-1",
+            "date": "2026-09-21",
+            "createdAt": "2026-09-21 12:00"
+        },
+        {
+            "id": "fin-demo-3",
+            "type": "expense",
+            "accountId": "acc-expense",
+            "category": "Packing",
+            "description": "DEMO packing supplies",
+            "amount": 2200,
+            "reference": "DEMO-EXP-1",
+            "date": "2026-09-23",
+            "createdAt": "2026-09-23 09:00"
+        },
+        {
+            "id": "fin-demo-4",
+            "type": "expense",
+            "accountId": "acc-salary",
+            "category": "Payroll",
+            "description": "DEMO stipend",
+            "amount": 18000,
+            "reference": "DEMO-PAY-1",
+            "date": "2026-10-06",
+            "createdAt": "2026-10-06 09:00"
+        },
+        {
+            "id": "fin-demo-5",
+            "type": "expense",
+            "accountId": "acc-expense",
+            "category": "Refund",
+            "description": "DEMO customer refund for DEM-0034 (cash, not stock)",
+            "amount": 3580,
+            "reference": "DEM-0034",
+            "date": "2026-09-11",
+            "createdAt": "2026-09-11 14:00"
+        }
+    ],
+    "updatedAt": "2026-10-11T00:00:00.000Z"
+}

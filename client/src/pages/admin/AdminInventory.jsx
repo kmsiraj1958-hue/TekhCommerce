@@ -12,12 +12,17 @@ const TYPES = [
 export default function AdminInventory() {
   const [summary, setSummary] = useState({});
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState('ALL');
+  const [movements, setMovements] = useState([]);
   const [form, setForm] = useState({ code: '', qty: '', type: 'purchase', note: '' });
   const [importStore, setImportStore] = useState('VOGUE');
   const [message, setMessage] = useState('');
 
   function load() {
-    api.getInventory().then((data) => setSummary(data.summary || {}));
+    api.getInventory().then((data) => {
+      setSummary(data.summary || {});
+      setMovements(data.movements || []);
+    });
     api.getProducts().then((data) => setProducts(data.products || []));
   }
 
@@ -67,7 +72,7 @@ export default function AdminInventory() {
               {products.map((p) => <option key={p.code} value={p.code}>{p.code} — {p.name}</option>)}
             </select>
           </div>
-          <div className="field"><label className="label">Quantity</label><input className="input" type="number" min="1" required value={form.qty} onChange={(e) => setForm({ ...form, qty: e.target.value })} /></div>
+          <div className="field"><label className="label">Quantity</label><input className="input" type="number" min="0.000001" step="0.000001" required value={form.qty} onChange={(e) => setForm({ ...form, qty: e.target.value })} /></div>
           <div className="field">
             <label className="label">Type</label>
             <select className="select" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
@@ -100,18 +105,28 @@ export default function AdminInventory() {
         </div>
       </div>
 
+      <div className="choice-row" style={{ marginBottom: 16 }}>
+        {['ALL', 'RAW_MATERIAL', 'PACKAGING_MATERIAL', 'FINISHED_GOOD'].map((id) => (
+          <button key={id} type="button" className={`btn ${filter === id ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFilter(id)}>{id === 'ALL' ? 'All items' : id.replace('_', ' ')}</button>
+        ))}
+      </div>
+
       <div className="card table-wrap">
-        <table>
+        <table className="data-table">
           <thead>
-            <tr><th>Code</th><th>Name</th><th>Opening</th><th>In</th><th>Dispatch</th><th>Returns</th><th>Balance</th><th>Reorder</th></tr>
+            <tr><th>Code</th><th>Name</th><th>Type</th><th>Opening</th><th>In</th><th>Production</th><th>Consumption</th><th>Wastage</th><th>Dispatch</th><th>Returns</th><th>Balance</th><th>Reorder</th></tr>
           </thead>
           <tbody>
-            {rows.map(([code, s]) => (
+            {rows.filter(([, s]) => filter === 'ALL' || (s.item_type || 'FINISHED_GOOD') === filter).map(([code, s]) => (
               <tr key={code} style={s.balance <= s.reorder_level ? { background: '#fff7ed' } : undefined}>
                 <td>{code}</td>
                 <td>{s.name}</td>
+                <td>{s.item_type || 'FINISHED_GOOD'}</td>
                 <td>{s.opening}</td>
                 <td>{s.stock_in}</td>
+                <td>{s.production_in || 0}</td>
+                <td>{s.consumption || 0}</td>
+                <td>{s.wastage || 0}</td>
                 <td>{s.dispatch}</td>
                 <td>{s.return_in}</td>
                 <td style={{ fontWeight: 700 }}>{s.balance}</td>
@@ -121,6 +136,25 @@ export default function AdminInventory() {
           </tbody>
         </table>
         {!rows.length && <div className="empty">No inventory data yet.</div>}
+      </div>
+
+      <div className="card table-wrap" style={{ marginTop: 24 }}>
+        <h2 style={{ padding: '16px 16px 0' }}>Recent movements</h2>
+        <table className="data-table">
+          <thead><tr><th>Date</th><th>SKU</th><th>Type</th><th>Qty</th><th>Ref</th><th>Note</th></tr></thead>
+          <tbody>
+            {movements.map((row) => (
+              <tr key={row.id || `${row.date}-${row.code}-${row.note}`}>
+                <td>{row.date}</td>
+                <td>{row.code}</td>
+                <td>{row.type}</td>
+                <td>{row.qty}</td>
+                <td>{row.ref}</td>
+                <td>{row.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

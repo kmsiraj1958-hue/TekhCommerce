@@ -4,6 +4,8 @@ import multer from 'multer';
 import { authRequired } from '../middleware/auth.js';
 import * as inventoryService from '../services/inventoryService.js';
 import * as mnpService from '../services/mnpService.js';
+import { qtyDecimal } from '../services/qty.js';
+import * as manufacturing from '../services/manufacturingService.js';
 import { config } from '../config.js';
 import { ensureDir } from '../utils/storage.js';
 
@@ -11,13 +13,17 @@ const router = Router();
 const upload = multer({ dest: path.join(config.files.uploads, 'tmp') });
 
 router.get('/', (req, res) => {
-  res.json({ summary: inventoryService.calculateInventory() });
+  manufacturing.ensureCpgDemoItems();
+  res.json({
+    summary: inventoryService.calculateInventory(),
+    movements: inventoryService.loadMovements().slice(-200).reverse(),
+  });
 });
 
 router.post('/movements', authRequired, (req, res) => {
   const { code, qty, type, note } = req.body || {};
   const allowed = ['purchase', 'manual_add', 'return_in', 'damage', 'adjustment'];
-  const quantity = parseInt(qty, 10) || 0;
+  const quantity = qtyDecimal(qty);
   if (!code) return res.status(400).json({ error: 'Product code required' });
   if (quantity <= 0) return res.status(400).json({ error: 'Quantity must be greater than zero' });
   if (!allowed.includes(type)) return res.status(400).json({ error: 'Invalid movement type' });

@@ -1,0 +1,24 @@
+[
+    {
+        "id": "rcpt-DEM-0003",
+        "order_id": "DEM-0003",
+        "tracking": "9000001002",
+        "received_at": "2026-08-18 11:00",
+        "received_by": "demo.operator",
+        "condition": "ok",
+        "qty": 3,
+        "notes": "DEMO MODE — SAMPLE DATA warehouse receipt",
+        "created_at": "2026-08-18 11:00"
+    },
+    {
+        "id": "rcpt-DEM-0057",
+        "order_id": "DEM-0057",
+        "tracking": "9000001035",
+        "received_at": "2026-09-30 11:00",
+        "received_by": "demo.operator",
+        "condition": "ok",
+        "qty": 1,
+        "notes": "DEMO MODE — SAMPLE DATA warehouse receipt",
+        "created_at": "2026-09-30 11:00"
+    }
+]

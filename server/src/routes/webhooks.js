@@ -1,7 +1,13 @@
 import { Router } from 'express';
+import { config } from '../config.js';
 import * as shopifyService from '../services/shopifyService.js';
 
 const router = Router();
+
+router.use((req, res, next) => {
+  if (config.publicDemo) return res.status(403).send('Shopify webhooks are disabled on the public demo');
+  next();
+});
 
 router.post('/shopify/:store/orders-create', (req, res) => {
   const store = (req.params.store || '').toLowerCase();

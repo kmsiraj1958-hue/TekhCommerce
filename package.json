@@ -4,12 +4,19 @@
   "private": true,
   "scripts": {
     "install:all": "npm install --prefix server && npm install --prefix client",
-    "dev:server": "npm run dev --prefix server",
+    "dev:server": "cross-env NODE_ENV=development TEKH_DATA=demo npm run dev --prefix server",
     "dev:client": "npm run dev --prefix client",
-    "dev": "concurrently -n server,client -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev:client\"",
     "build": "npm run build --prefix client",
-    "start": "npm run start --prefix server",
-    "start:prod": "npm run build && cross-env NODE_ENV=production npm run start --prefix server"
+    "start": "node -e \"console.error('Use npm run dev (local demo data) or npm run start:prod (live JSON).'); process.exit(1)\"",
+    "start:prod": "npm run build && cross-env NODE_ENV=production TEKH_DATA=live npm run start --prefix server",
+    "test": "npm test --prefix server",
+    "db:generate": "npm run db:generate --prefix server",
+    "db:migrate:rehearse": "npm run db:migrate:rehearse --prefix server",
+    "json:import:rehearse": "npm run json:import:rehearse --prefix server",
+    "json:import:dry": "npm run json:import:dry --prefix server",
+    "demo:seed": "npm run data:seed --prefix server",
+    "data:seed": "npm run data:seed --prefix server"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

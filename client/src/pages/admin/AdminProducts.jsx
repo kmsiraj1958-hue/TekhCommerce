@@ -3,6 +3,7 @@ import { api, imageUrl } from '../../api/client';
 
 const emptyForm = {
   name: '', code: '', price: '', cost: '', category: '', opening_stock: '0', reorder_level: '3', image: null,
+  item_type: 'FINISHED_GOOD', base_uom: 'pcs', hide_from_store: false,
 };
 
 export default function AdminProducts() {
@@ -54,6 +55,9 @@ export default function AdminProducts() {
       category: product.category || '',
       opening_stock: product.opening_stock || 0,
       reorder_level: product.reorder_level || 3,
+      item_type: product.item_type || 'FINISHED_GOOD',
+      base_uom: product.base_uom || 'pcs',
+      hide_from_store: product.hide_from_store || false,
       image: null,
     });
   }
@@ -78,8 +82,17 @@ export default function AdminProducts() {
           <div className="field"><label className="label">Price</label><input className="input" type="number" required value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} /></div>
           <div className="field"><label className="label">Cost</label><input className="input" type="number" value={form.cost} onChange={(e) => setForm({ ...form, cost: e.target.value })} /></div>
           <div className="field"><label className="label">Category</label><input className="input" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} /></div>
-          <div className="field"><label className="label">Opening Stock</label><input className="input" type="number" value={form.opening_stock} onChange={(e) => setForm({ ...form, opening_stock: e.target.value })} /></div>
-          <div className="field"><label className="label">Reorder Level</label><input className="input" type="number" value={form.reorder_level} onChange={(e) => setForm({ ...form, reorder_level: e.target.value })} /></div>
+          <div className="field"><label className="label">Opening Stock</label><input className="input" type="number" step="0.000001" value={form.opening_stock} onChange={(e) => setForm({ ...form, opening_stock: e.target.value })} /></div>
+          <div className="field"><label className="label">Reorder Level</label><input className="input" type="number" step="0.000001" value={form.reorder_level} onChange={(e) => setForm({ ...form, reorder_level: e.target.value })} /></div>
+          <div className="field">
+            <label className="label">Item type</label>
+            <select className="select" value={form.item_type} onChange={(e) => setForm({ ...form, item_type: e.target.value, hide_from_store: e.target.value !== 'FINISHED_GOOD' })}>
+              <option value="FINISHED_GOOD">Finished good</option>
+              <option value="RAW_MATERIAL">Raw material</option>
+              <option value="PACKAGING_MATERIAL">Packaging</option>
+            </select>
+          </div>
+          <div className="field"><label className="label">Base UOM</label><input className="input" value={form.base_uom} onChange={(e) => setForm({ ...form, base_uom: e.target.value })} /></div>
           <div className="field"><label className="label">Image</label><input className="input" type="file" accept="image/*" onChange={(e) => setForm({ ...form, image: e.target.files?.[0] || null })} /></div>
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
@@ -89,9 +102,9 @@ export default function AdminProducts() {
       </form>
 
       <div className="card table-wrap">
-        <table>
+        <table className="data-table">
           <thead>
-            <tr><th>Image</th><th>Code</th><th>Name</th><th>Price</th><th>Stock</th><th>Actions</th></tr>
+            <tr><th>Image</th><th>Code</th><th>Name</th><th>Type</th><th>Price</th><th>Stock</th><th>Actions</th></tr>
           </thead>
           <tbody>
             {products.map((p) => (
@@ -99,6 +112,7 @@ export default function AdminProducts() {
                 <td><img src={imageUrl(p.image)} alt="" style={{ width: 48, height: 48, objectFit: 'cover', borderRadius: 8 }} /></td>
                 <td>{p.code}</td>
                 <td>{p.name}</td>
+                <td>{p.item_type || 'FINISHED_GOOD'}</td>
                 <td>Rs {Number(p.price).toLocaleString()}</td>
                 <td>{p.live_stock ?? p.opening_stock ?? 0}</td>
                 <td style={{ display: 'flex', gap: 8 }}>

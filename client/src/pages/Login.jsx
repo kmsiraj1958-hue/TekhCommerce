@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { BRAND } from '../brand';
 
 export default function Login() {
   const { login, isAdmin } = useAuth();
@@ -26,23 +27,30 @@ export default function Login() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', padding: 20 }}>
-      <form className="card" style={{ width: 'min(420px, 100%)', padding: 28 }} onSubmit={handleSubmit}>
-        <h1 style={{ marginTop: 0 }}>TekhShopify Admin</h1>
-        <p style={{ color: '#78716c' }}>Sign in to manage products, orders, and reports.</p>
-        {error && <div className="alert alert-error">{error}</div>}
-        <div className="field">
-          <label className="label">Username</label>
-          <input className="input" value={form.username} onChange={(e) => setForm({ ...form, username: e.target.value })} required />
-        </div>
-        <div className="field">
-          <label className="label">Password</label>
-          <input className="input" type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required />
-        </div>
-        <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={loading}>
-          {loading ? 'Signing in...' : 'Login'}
-        </button>
-      </form>
+    <div className="login-page">
+      <div className="login-brand">
+        <h1>{BRAND.name}</h1>
+        <p className="wordmark">{BRAND.wordmark}</p>
+        <p>{BRAND.tagline}</p>
+      </div>
+      <div className="login-form-wrap">
+        <form className="card login-form" onSubmit={handleSubmit}>
+          <h2 className="page-title">Admin sign in</h2>
+          <p className="page-subtitle">{BRAND.loginHint}</p>
+          {error && <div className="alert alert-error">{error}</div>}
+          <div className="field">
+            <label className="label">Username</label>
+            <input className="input" value={form.username} onChange={(e) => setForm({ ...form, username: e.target.value })} required />
+          </div>
+          <div className="field">
+            <label className="label">Password</label>
+            <input className="input" type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required />
+          </div>
+          <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={loading}>
+            {loading ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

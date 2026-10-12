@@ -3,10 +3,12 @@ services:
     name: tekhshopify
     runtime: node
     buildCommand: npm install && npm install --prefix server && npm install --prefix client && npm run build
-    startCommand: NODE_ENV=production npm run start --prefix server
+    startCommand: NODE_ENV=production TEKH_DATA=live npm run start --prefix server
     envVars:
       - key: NODE_ENV
         value: production
+      - key: TEKH_DATA
+        value: live
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_USER
@@ -30,4 +32,6 @@ services:
       - key: MNP_USER_SNS
         sync: false
       - key: MNP_PASS_SNS
+        sync: false
+      - key: DATABASE_URL
         sync: false

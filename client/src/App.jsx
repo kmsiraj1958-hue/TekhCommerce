@@ -15,6 +15,11 @@ import AdminOrders from './pages/admin/AdminOrders';
 import AdminInventory from './pages/admin/AdminInventory';
 import AdminReports from './pages/admin/AdminReports';
 import AdminFinance from './pages/admin/AdminFinance';
+import AdminSettings from './pages/admin/AdminSettings';
+import AdminCourier from './pages/admin/AdminCourier';
+import AdminInvoices from './pages/admin/AdminInvoices';
+import AdminManufacturing from './pages/admin/AdminManufacturing';
+import AdminOnboarding from './pages/admin/AdminOnboarding';
 
 function ProtectedRoute({ children }) {
   const { isAdmin, loading } = useAuth();
@@ -49,8 +54,13 @@ export default function App() {
         <Route path="products" element={<AdminProducts />} />
         <Route path="orders" element={<AdminOrders />} />
         <Route path="inventory" element={<AdminInventory />} />
+        <Route path="manufacturing" element={<AdminManufacturing />} />
+        <Route path="onboarding" element={<AdminOnboarding />} />
         <Route path="reports" element={<AdminReports />} />
         <Route path="finance" element={<AdminFinance />} />
+        <Route path="invoices" element={<AdminInvoices />} />
+        <Route path="courier" element={<AdminCourier />} />
+        <Route path="settings" element={<AdminSettings />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

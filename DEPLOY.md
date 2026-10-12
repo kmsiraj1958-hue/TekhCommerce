@@ -1,4 +1,11 @@
-# Deploy TekhShopify
+# Deploy TekhCommerce
+
+**Canonical stack:** React (`client/`) + Node/Express (`server/`). Start with `npm run dev` or `start.bat`.  
+`app.py` is **frozen legacy** — do not run it beside Express (shared JSON files). See `FLASK_LEGACY.md`.
+
+Live persistence is still **JSON** until a later cutover. PostgreSQL is the Phase 1 foundation only (`docs/PHASE1_DATABASE.md`).
+
+---
 
 ## Option A — Render (recommended, free tier available)
 
@@ -47,6 +54,8 @@ pm2 save
 
 ---
 
+Local `npm run dev` uses `server/data/demo/` (see `docs/DEVELOPMENT_DATA.md`). Production requires `NODE_ENV=production TEKH_DATA=live` and uses live JSON at the repo root. Do not copy demo files into live JSON.
+
 ## Option C — Local development
 
 ```bash
@@ -63,7 +72,9 @@ npm run dev
 
 ## Data & uploads
 
-JSON data files (`products.json`, `orders.json`, etc.) and `uploads/` live in the project root.
+**Production / `NODE_ENV=production`:** JSON data files (`products.json`, `orders.json`, etc.) and `uploads/` live in the project root; finance/courier/license overlays live in `server/data/`.
+
+**Local development:** JSON is read and written only under `server/data/demo/`. See `docs/DEVELOPMENT_DATA.md`.
 
 On Render, use a **persistent disk** mounted at the project root if you need data to survive redeploys.
 

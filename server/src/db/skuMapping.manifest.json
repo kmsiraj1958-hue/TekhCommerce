@@ -1,0 +1,113 @@
+{
+  "id": "live-sku-duplicates-2026-10-11",
+  "dataset": "live",
+  "approval_status": "pending_review",
+  "approved_by": "",
+  "approved_at": "",
+  "sku_uniqueness": "global",
+  "notes": "Live products.json is not modified. Mappings apply only to a transformed import snapshot after explicit approval. Identity uses name, category, opening_stock, image and source SKU — not array index alone.",
+  "legacy_untyped_item_type_policy": {
+    "approval_status": "pending_review",
+    "when_item_type_missing": "FINISHED_GOOD",
+    "reason": "Historical catalog rows have no item_type. CPG SKUs in demo set item_type explicitly. Ambiguous non-sellable rows must be listed before a production snapshot.",
+    "allow_on_production_import": false
+  },
+  "mappings": [
+    {
+      "identity_key": "VIB-005|Ladies Designer Purse|Purse|3|5.jpeg",
+      "source_sku": "VIB-005",
+      "name": "Ladies Designer Purse",
+      "category": "Purse",
+      "opening_stock": 3,
+      "image": "5.jpeg",
+      "proposed_sku": "VIB-005",
+      "action": "keep",
+      "reason": "Original ladies purse identity. Keep VIB-005.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-005|Gents Suit-Cotton|High Quality Khaddar|10|WhatsApp Image 2026-01-31 at 5.13.06 PM (3).jpeg",
+      "source_sku": "VIB-005",
+      "name": "Gents Suit-Cotton",
+      "category": "High Quality Khaddar",
+      "opening_stock": 10,
+      "image": "WhatsApp Image 2026-01-31 at 5.13.06 PM (3).jpeg",
+      "proposed_sku": "VCK-013",
+      "action": "reassign",
+      "reason": "Men's khaddar suit incorrectly sharing the purse SKU. VCK-013 was unused in the live catalog (VCK-000 through VCK-012 exist; VCK--07 is a separate typo and is not reused).",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-010|Ladies Designer Purse|Purse|10|10.jpeg",
+      "source_sku": "VIB-010",
+      "name": "Ladies Designer Purse",
+      "category": "Purse",
+      "opening_stock": 10,
+      "image": "10.jpeg",
+      "proposed_sku": "VIB-010",
+      "action": "keep",
+      "reason": "Original ladies purse identity. Keep VIB-010.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-010|Gents Suit-Cotton|High Quality Khaddar|10|",
+      "source_sku": "VIB-010",
+      "name": "Gents Suit-Cotton",
+      "category": "High Quality Khaddar",
+      "opening_stock": 10,
+      "image": "",
+      "proposed_sku": "VCK-014",
+      "action": "reassign",
+      "reason": "Men's suit sharing VIB-010. VCK-014 unused in live catalog.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-013|Ladies Designer Purse|Purse|10|13.jpeg",
+      "source_sku": "VIB-013",
+      "name": "Ladies Designer Purse",
+      "category": "Purse",
+      "opening_stock": 10,
+      "image": "13.jpeg",
+      "proposed_sku": "VIB-013",
+      "action": "keep",
+      "reason": "Original ladies purse identity. Keep VIB-013.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-013|Gents Suit-Cotton|High Quality Khaddar|2|",
+      "source_sku": "VIB-013",
+      "name": "Gents Suit-Cotton",
+      "category": "High Quality Khaddar",
+      "opening_stock": 2,
+      "image": "",
+      "proposed_sku": "VCK-015",
+      "action": "reassign",
+      "reason": "Men's suit sharing VIB-013. VCK-015 unused in live catalog.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-014|Ladies Designer Purse|Purse|10|14.jpeg",
+      "source_sku": "VIB-014",
+      "name": "Ladies Designer Purse",
+      "category": "Purse",
+      "opening_stock": 10,
+      "image": "14.jpeg",
+      "proposed_sku": "VIB-014",
+      "action": "keep",
+      "reason": "Original ladies purse identity. Keep VIB-014.",
+      "approval_status": "proposed"
+    },
+    {
+      "identity_key": "VIB-014|Gents Suit-Cotton|High Quality Khaddar|5|",
+      "source_sku": "VIB-014",
+      "name": "Gents Suit-Cotton",
+      "category": "High Quality Khaddar",
+      "opening_stock": 5,
+      "image": "",
+      "proposed_sku": "VCK-016",
+      "action": "reassign",
+      "reason": "Men's suit sharing VIB-014. VCK-016 unused in live catalog.",
+      "approval_status": "proposed"
+    }
+  ]
+}

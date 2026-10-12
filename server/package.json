@@ -5,9 +5,22 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js",
+    "test": "node --test src/db/jsonMap.test.js src/db/mergeStock.test.js src/db/onboardingService.test.js src/services/dashboardService.test.js src/services/cashbookService.test.js src/services/returnsAnalyticsService.test.js src/services/courierLogic.test.js src/demo/paths.test.js src/demo/buildDemoDataset.test.js src/services/documentCalc.test.js src/services/documentService.test.js src/services/reportCentreService.test.js src/services/whatsappService.test.js src/services/orderStatusPipeline.test.js src/services/shopifyService.test.js src/services/invoicesReports.qa.test.js src/services/manufacturingService.test.js src/services/uom.test.js src/db/rehearsalGuard.test.js",
+    "json:import:rehearse": "node src/db/rehearseImport.js",
+    "demo:seed": "node src/demo/writeDemoDataset.js",
+    "data:seed": "node src/demo/writeDemoDataset.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:rehearse": "node src/db/rehearsalMigrate.js",
+    "json:import:dry": "node src/db/migrateFromJson.js",
+    "json:import:apply": "node src/db/migrateFromJson.js --apply"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   },
   "dependencies": {
+    "@prisma/client": "^6.5.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -16,5 +29,8 @@
     "multer": "^1.4.5-lts.1",
     "uuid": "^11.0.5",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "prisma": "^6.5.0"
   }
 }

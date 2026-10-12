@@ -1,3 +1,10 @@
+# =============================================================================
+# FROZEN LEGACY — do not add features here.
+# Canonical application: React (client/) + Node/Express (server/).
+# This Flask app shares products.json / orders.json / inventory_movements.json
+# with Express. Running both will cause conflicting writes. Use `npm run dev`.
+# Templates and this file are preserved for reference only.
+# =============================================================================
 from flask import Flask, render_template, request, redirect, url_for, session, flash, send_file
 from functools import wraps
 import os, json, urllib.parse, hmac, hashlib, base64, re, uuid, csv, io
@@ -21,6 +28,11 @@ app = Flask(
     static_url_path="/static"
 )
 app.secret_key = "super_secret_key_123"
+print(
+    "WARNING: Flask app.py is FROZEN LEGACY. Canonical stack is React + Express. "
+    "Do not run this alongside `npm run dev` (both write the same JSON files).",
+    flush=True,
+)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 

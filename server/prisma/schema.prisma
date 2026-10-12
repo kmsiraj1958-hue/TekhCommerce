@@ -1,0 +1,444 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ItemType {
+  FINISHED_GOOD
+  RAW_MATERIAL
+  PACKAGING_MATERIAL
+  PACKAGING
+  SERVICE
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  BOOKED
+  SHIPPED
+  DELIVERED
+  RETURNED
+}
+
+enum StockMoveType {
+  OPENING
+  PURCHASE
+  MANUAL_ADD
+  STOCK_IN
+  DISPATCH
+  STOCK_OUT
+  RETURN_IN
+  DAMAGE
+  ADJUSTMENT_PLUS
+  ADJUSTMENT_MINUS
+  CONSUMPTION
+  WASTAGE
+  PRODUCTION_IN
+  REVERSAL_IN
+  REVERSAL_OUT
+}
+
+enum ProductionStatus {
+  DRAFT
+  RELEASED
+  IN_PROGRESS
+  POSTING
+  POSTED
+  CANCELLED
+  REVERSED
+}
+
+enum BomStatus {
+  active
+  inactive
+  superseded
+}
+
+model Store {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+}
+
+model User {
+  id           String     @id @default(cuid())
+  username     String     @unique
+  displayName  String     @default("")
+  role         String     @default("ADMIN")
+  active       Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  auditEntries AuditLog[]
+}
+
+model Supplier {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @default("")
+  email     String   @default("")
+  address   String   @default("")
+  ntnCnic   String   @default("")
+  notes     String   @default("")
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @default("")
+  email     String   @default("")
+  address   String   @default("")
+  ntnCnic   String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+
+  @@index([phone])
+  @@index([name])
+}
+
+model Product {
+  id               String          @id @default(cuid())
+  sku              String          @unique
+  name             String
+  itemType         ItemType        @default(FINISHED_GOOD)
+  category         String          @default("")
+  price            Decimal         @default(0) @db.Decimal(18, 4)
+  cost             Decimal         @default(0) @db.Decimal(18, 4)
+  openingStock     Decimal         @default(0) @db.Decimal(18, 6)
+  reorderLevel     Decimal         @default(0) @db.Decimal(18, 6)
+  uom              String          @default("pcs")
+  hideFromStore    Boolean         @default(false)
+  conversionRules  Json?
+  image            String          @default("")
+  shopifySku       String          @default("")
+  active           Boolean         @default(true)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  orderItems       OrderItem[]
+  stockMoves       StockMovement[]
+  bomsFinished     Bom[]           @relation("BomFinishedProduct")
+  productionOutput ProductionOrder[] @relation("ProductionFinishedProduct")
+
+  @@index([itemType])
+  @@index([category])
+}
+
+model Order {
+  id               String          @id @default(cuid())
+  orderId          String          @unique
+  storeId          String?
+  store            Store?          @relation(fields: [storeId], references: [id])
+  storeCode        String          @default("LOCAL")
+  source           String          @default("website")
+  status           OrderStatus     @default(PENDING)
+  customerId       String?
+  customer         Customer?       @relation(fields: [customerId], references: [id])
+  customerName     String          @default("")
+  customerPhone    String          @default("")
+  customerAddress  String          @default("")
+  productName      String          @default("")
+  productCode      String          @default("")
+  qty              Decimal         @default(0) @db.Decimal(18, 6)
+  price            Decimal         @default(0) @db.Decimal(18, 4)
+  shopifyOrderId   String?
+  shopifyOrderName String          @default("")
+  courier          String          @default("")
+  trackingNumber   String          @default("")
+  stockReserved    Boolean         @default(false)
+  stockRestocked   Boolean         @default(false)
+  mnpCodAmount     Decimal         @default(0) @db.Decimal(18, 4)
+  mnpStatus        String          @default("")
+  notifications    Json?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  items            OrderItem[]
+  stockMoves       StockMovement[]
+
+  @@unique([storeCode, shopifyOrderId])
+  @@index([status])
+  @@index([storeCode])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id])
+  sku       String   @default("")
+  title     String   @default("")
+  variant   String   @default("")
+  qty       Decimal  @default(1) @db.Decimal(18, 6)
+  price     Decimal  @default(0) @db.Decimal(18, 4)
+}
+
+model StockMovement {
+  id                String           @id @default(cuid())
+  sourceKey         String           @unique
+  productId         String?
+  product           Product?         @relation(fields: [productId], references: [id])
+  sku               String
+  qty               Decimal          @db.Decimal(18, 6)
+  uom               String           @default("")
+  type              StockMoveType
+  storeCode         String           @default("")
+  note              String           @default("")
+  ref               String           @default("")
+  orderId           String?
+  order             Order?           @relation(fields: [orderId], references: [id])
+  productionOrderId String?
+  productionOrder   ProductionOrder? @relation(fields: [productionOrderId], references: [id])
+  reversalOfId      String?
+  reversalOf        StockMovement?   @relation("MovementReversal", fields: [reversalOfId], references: [id])
+  reversedBy        StockMovement[]  @relation("MovementReversal")
+  userName          String           @default("")
+  occurredAt        DateTime         @default(now())
+  createdAt         DateTime         @default(now())
+
+  @@index([sku, occurredAt])
+  @@index([type])
+  @@index([productionOrderId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String   @default("")
+  detail    String   @default("")
+  createdAt DateTime @default(now())
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+model Bom {
+  id                 String      @id @default(cuid())
+  code               String
+  name               String      @default("")
+  finishedSku        String
+  finishedProductId  String?
+  finishedProduct    Product?    @relation("BomFinishedProduct", fields: [finishedProductId], references: [id])
+  outputQty          Decimal     @default(1) @db.Decimal(18, 6)
+  outputUom          String      @default("pcs")
+  status             BomStatus   @default(active)
+  revision           Int         @default(1)
+  effectiveFrom      DateTime?
+  supersededById     String?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  lines              BomLine[]
+  productionOrders   ProductionOrder[]
+
+  @@unique([code, revision])
+}
+
+model BomLine {
+  id                 String  @id @default(cuid())
+  bomId              String
+  bom                Bom     @relation(fields: [bomId], references: [id], onDelete: Cascade)
+  componentSku       String
+  quantity           Decimal @db.Decimal(18, 6)
+  uom                String  @default("pcs")
+  lineRole           String  @default("RAW")
+  expectedWastagePct Decimal @default(0) @db.Decimal(9, 4)
+}
+
+model ProductionOrder {
+  id                  String                  @id @default(cuid())
+  number              String                  @unique
+  bomId               String?
+  bom                 Bom?                    @relation(fields: [bomId], references: [id])
+  bomRevision         Int                     @default(1)
+  finishedSku         String
+  finishedProductId   String?
+  finishedProduct     Product?                @relation("ProductionFinishedProduct", fields: [finishedProductId], references: [id])
+  plannedOutputQty    Decimal                 @db.Decimal(18, 6)
+  actualOutputQty     Decimal                 @default(0) @db.Decimal(18, 6)
+  extraCosts          Decimal                 @default(0) @db.Decimal(18, 4)
+  status              ProductionStatus        @default(DRAFT)
+  postingToken        String                  @default("")
+  idempotencyKey      String?                 @unique
+  costMaterial        Decimal                 @default(0) @db.Decimal(18, 4)
+  costPackaging       Decimal                 @default(0) @db.Decimal(18, 4)
+  costWastage         Decimal                 @default(0) @db.Decimal(18, 4)
+  costExtra           Decimal                 @default(0) @db.Decimal(18, 4)
+  costTotal           Decimal                 @default(0) @db.Decimal(18, 4)
+  costPerUnit         Decimal                 @default(0) @db.Decimal(18, 4)
+  postedAt            DateTime?
+  reversedAt          DateTime?
+  userName            String                  @default("")
+  notes               String                  @default("")
+  createdAt           DateTime                @default(now())
+  updatedAt           DateTime                @updatedAt
+  components          ProductionComponent[]
+  stockMoves          StockMovement[]
+  postingLog          ProductionPostingLog[]
+
+  @@index([status])
+  @@index([finishedSku])
+}
+
+model ProductionComponent {
+  id                String          @id @default(cuid())
+  productionOrderId String
+  productionOrder   ProductionOrder @relation(fields: [productionOrderId], references: [id], onDelete: Cascade)
+  sku               String
+  role              String          @default("RAW")
+  uom               String          @default("pcs")
+  plannedQty        Decimal         @default(0) @db.Decimal(18, 6)
+  consumedQty       Decimal         @default(0) @db.Decimal(18, 6)
+  wastageQty        Decimal         @default(0) @db.Decimal(18, 6)
+}
+
+model ProductionPostingLog {
+  id                String          @id @default(cuid())
+  productionOrderId String
+  productionOrder   ProductionOrder @relation(fields: [productionOrderId], references: [id], onDelete: Cascade)
+  event             String
+  detail            String          @default("")
+  createdAt         DateTime        @default(now())
+}
+
+model MerchantProfile {
+  id        String   @id @default("default")
+  legalName String   @default("")
+  wordmark  String   @default("")
+  address   String   @default("")
+  phone     String   @default("")
+  email     String   @default("")
+  ntn       String   @default("")
+  terms     String   @default("")
+  updatedAt DateTime @updatedAt
+}
+
+model DocumentSequence {
+  id     String @id
+  prefix String
+  year   String
+  next   Int    @default(1)
+
+  @@unique([prefix, year])
+}
+
+model IdempotencyKey {
+  key        String   @id
+  entity     String
+  entityId   String
+  createdAt  DateTime @default(now())
+}
+
+model Document {
+  id                  String          @id
+  type                String
+  number              String          @unique
+  status              String          @default("issued")
+  issueDate           String          @default("")
+  dueDate             String          @default("")
+  orderId             String          @default("")
+  sourceType          String          @default("")
+  sourceId            String          @default("")
+  originalDocumentId  String          @default("")
+  originalDocumentNo  String          @default("")
+  customerName        String          @default("")
+  supplierName        String          @default("")
+  store               String          @default("")
+  currency            String          @default("PKR")
+  payload             Json
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  lines               DocumentLine[]
+  events              DocumentEvent[]
+}
+
+model DocumentLine {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  sku        String   @default("")
+  description String  @default("")
+  qty        Decimal  @default(0) @db.Decimal(18, 6)
+  unitPrice  Decimal  @default(0) @db.Decimal(18, 4)
+}
+
+model DocumentEvent {
+  id         String   @id
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  fromStatus String   @default("")
+  toStatus   String   @default("")
+  note       String   @default("")
+  at         String   @default("")
+}
+
+model CashAccount {
+  id      String          @id
+  code    String          @unique
+  name    String
+  type    String
+  entries CashbookEntry[]
+}
+
+model CashbookEntry {
+  id          String       @id
+  type        String
+  accountId   String?
+  account     CashAccount? @relation(fields: [accountId], references: [id])
+  category    String       @default("")
+  description String       @default("")
+  amount      Decimal      @db.Decimal(18, 4)
+  reference   String       @default("")
+  date        String       @default("")
+  createdAt   String       @default("")
+}
+
+model CourierSettings {
+  id                    String @id @default("default")
+  returnOverdueDays     Int    @default(7)
+  staleTrackingDays     Int    @default(5)
+  settlementOverdueDays Int    @default(14)
+  payload               Json?
+}
+
+model CourierEvent {
+  sourceKey String @id
+  orderId   String @default("")
+  tracking  String @default("")
+  status    String @default("")
+  at        String @default("")
+  location  String @default("")
+  payload   Json?
+}
+
+model CourierReceipt {
+  sourceKey String @id
+  orderId   String @default("")
+  payload   Json
+}
+
+model AdSpendDay {
+  date   String  @id
+  amount Decimal @db.Decimal(18, 4)
+}
+
+model JsonSnapshot {
+  id      String @id
+  kind    String
+  payload Json
+}

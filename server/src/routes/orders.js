@@ -131,7 +131,10 @@ router.get('/', authRequired, (req, res) => {
 });
 
 router.get('/dashboard', authRequired, (req, res) => {
-  res.json(orderService.getDashboardStats());
+  res.json(orderService.getDashboardSummary({
+    start: req.query.start,
+    end: req.query.end,
+  }));
 });
 
 router.patch('/:orderId/status', authRequired, (req, res) => {

@@ -1,0 +1,42 @@
+# Local PostgreSQL for TekhShopify Phase 1 foundation.
+# Business services still read/write JSON until a verified cutover.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: tekhshopify-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: tekhshopify
+      POSTGRES_PASSWORD: tekhshopify
+      POSTGRES_DB: tekhshopify
+    volumes:
+      - tekhshopify_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tekhshopify -d tekhshopify"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  db-rehearsal:
+    image: postgres:16-alpine
+    container_name: tekhcommerce-rehearsal-pg
+    restart: unless-stopped
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: rehearsal
+      POSTGRES_PASSWORD: rehearsal
+      POSTGRES_DB: tekhcommerce_rehearsal
+    volumes:
+      - tekhcommerce_rehearsal_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rehearsal -d tekhcommerce_rehearsal"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  tekhshopify_pg:
+  tekhcommerce_rehearsal_pg:

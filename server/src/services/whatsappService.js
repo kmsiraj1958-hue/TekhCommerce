@@ -1,5 +1,7 @@
 import { config } from '../config.js';
-import { cleanPhoneForWhatsapp } from '../utils/helpers.js';
+import { cleanPhoneForWhatsapp, nowStamp } from '../utils/helpers.js';
+
+export const WHATSAPP_STATUS_TRIGGERS = ['Confirmed', 'Shipped', 'Delivered', 'Returned'];
 
 function buildMessage(order, status) {
   const orderId = order.order_id || '';
@@ -13,7 +15,15 @@ function buildMessage(order, status) {
   return messages[status] || `Dear Customer, your order ${orderId} status is now ${status}.`;
 }
 
+/** Real Graph API / wa.me sends are off on the isolated development dataset. */
+export function outboundMessagingEnabled() {
+  return !config.demoMode && !config.useDevelopmentData;
+}
+
 export async function sendTextMessage(phone, message) {
+  if (!outboundMessagingEnabled()) {
+    return false;
+  }
   if (!config.whatsappAccessToken || !config.whatsappPhoneNumberId) {
     console.warn('WhatsApp API config missing');
     return false;
@@ -43,8 +53,48 @@ export async function sendTextMessage(phone, message) {
   }
 }
 
-export function sendOrderStatusMessage(order, status) {
-  const phone = order.customer_phone || '';
-  const message = buildMessage(order, status);
-  return sendTextMessage(phone, message);
+/**
+ * Records notification state on the order. Does not claim provider delivery
+ * receipts (this stack has no WhatsApp status webhook).
+ */
+export function notifyOrderStatus(order, status, { statusChanged = true } = {}) {
+  if (!WHATSAPP_STATUS_TRIGGERS.includes(status)) {
+    return { channel: 'whatsapp', state: 'not_applicable', status };
+  }
+  order.notifications = order.notifications || { whatsapp: {} };
+  const existing = order.notifications.whatsapp[status];
+  if (existing && ['sent', 'skipped_development', 'queued'].includes(existing.state)) {
+    return { ...existing, state: 'already_recorded', prior: existing.state };
+  }
+  if (!statusChanged) {
+    return { channel: 'whatsapp', state: 'already_recorded', prior: existing?.state || 'unchanged' };
+  }
+
+  if (!outboundMessagingEnabled()) {
+    const rec = {
+      channel: 'whatsapp',
+      state: 'skipped_development',
+      at: nowStamp(),
+      reason: 'Isolated development dataset — outbound customer messages are disabled',
+    };
+    order.notifications.whatsapp[status] = rec;
+    return rec;
+  }
+
+  const rec = {
+    channel: 'whatsapp',
+    state: 'queued',
+    at: nowStamp(),
+  };
+  order.notifications.whatsapp[status] = rec;
+  sendTextMessage(order.customer_phone || '', buildMessage(order, status)).then((ok) => {
+    rec.state = ok ? 'sent' : 'failed';
+  });
+  return rec;
 }
+
+export function sendOrderStatusMessage(order, status) {
+  return notifyOrderStatus(order, status, { statusChanged: true });
+}
+
+export { buildMessage };

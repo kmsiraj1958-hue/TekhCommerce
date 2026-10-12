@@ -1,172 +1,138 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../api/client';
 
-const TABS = ['Financial', 'Master', 'Payout', 'Weekly', 'Courier Balance'];
+const FALLBACK = [
+  { id: 'sales_summary', category: 'Sales & Invoicing', title: 'Sales summary' },
+  { id: 'sales_register', category: 'Sales & Invoicing', title: 'Sales register' },
+  { id: 'invoice_register', category: 'Sales & Invoicing', title: 'Invoice register' },
+  { id: 'returns_refunds', category: 'Sales & Invoicing', title: 'Returns, refunds and credit notes' },
+  { id: 'stock_on_hand', category: 'Inventory & Purchasing', title: 'Stock on hand and low stock' },
+  { id: 'stock_movements', category: 'Inventory & Purchasing', title: 'Stock movements and valuation' },
+  { id: 'purchases', category: 'Inventory & Purchasing', title: 'Purchases and supplier balances' },
+  { id: 'courier_weekly', category: 'Courier Accounts', title: 'Weekly courier performance' },
+  { id: 'cod_settlement', category: 'Courier Accounts', title: 'COD settlement and reconciliation' },
+  { id: 'cashbook_register', category: 'Finance & Compliance', title: 'Cashbook and payment register' },
+  { id: 'tax_fbr', category: 'Finance & Compliance', title: 'Tax and FBR invoice register' },
+  { id: 'financial_statements', category: 'Finance & Compliance', title: 'Financial statements' },
+  { id: 'rm_stock', category: 'Manufacturing', title: 'Raw-material stock on hand' },
+  { id: 'pkg_stock', category: 'Manufacturing', title: 'Packaging stock on hand' },
+  { id: 'fg_stock', category: 'Manufacturing', title: 'Finished-goods stock' },
+  { id: 'production_register', category: 'Manufacturing', title: 'Production-order register' },
+  { id: 'mfg_cost_per_unit', category: 'Manufacturing', title: 'Manufacturing cost per unit' },
+];
 
 export default function AdminReports() {
-  const [tab, setTab] = useState('Financial');
-  const [message, setMessage] = useState('');
-  const [financial, setFinancial] = useState(null);
-  const [master, setMaster] = useState(null);
-  const [payouts, setPayouts] = useState([]);
-  const [weekly, setWeekly] = useState([]);
-  const [courier, setCourier] = useState(null);
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [filters, setFilters] = useState({ start: '2026-02-01', end: new Date().toISOString().slice(0, 10), store: '', status: '' });
-  const [adSpend, setAdSpend] = useState('');
-  const [courierFilters, setCourierFilters] = useState({ store: '', from_date: '', to_date: '' });
+  const [families, setFamilies] = useState(FALLBACK);
+  const [family, setFamily] = useState('sales_summary');
+  const [start, setStart] = useState('2026-08-12');
+  const [end, setEnd] = useState('2026-10-11');
+  const [q, setQ] = useState('');
+  const [store, setStore] = useState('');
+  const [report, setReport] = useState(null);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (tab === 'Financial') api.getFinancialReport(date).then(setFinancial);
-    if (tab === 'Master') api.getMasterReport(filters).then(setMaster);
-    if (tab === 'Payout') api.getPayoutReport().then((d) => setPayouts(d.payouts || []));
-    if (tab === 'Weekly') api.getWeeklyReport().then((d) => setWeekly(d.reports || []));
-    if (tab === 'Courier Balance') api.getCourierBalance(courierFilters).then(setCourier);
-  }, [tab, date, filters, courierFilters]);
+    api.getReportFamilies().then((data) => {
+      if (data.families?.length) setFamilies(data.families);
+    }).catch(() => {});
+  }, []);
 
-  async function saveAdSpend() {
-    await api.saveAdSpend(date, adSpend);
-    setMessage('Ad spend saved');
-    api.getFinancialReport(date).then(setFinancial);
+  useEffect(() => {
+    setLoading(true);
+    setError('');
+    api.getReportCentre({ family, start, end, q, store })
+      .then(setReport)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [family, start, end, q, store]);
+
+  async function exportCsv() {
+    const blob = await api.getReportCentreCsv({ family, start, end, q, store });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${family}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
-  async function generateWeekly() {
-    const data = await api.generateWeekly();
-    setMessage('Weekly report generated');
-    setWeekly([data.report, ...weekly]);
-  }
+  const groups = [...new Set(families.map((row) => row.category))];
+  const rows = report?.rows || [];
+  const headers = rows[0] ? Object.keys(rows[0]) : [];
+  const current = families.find((row) => row.id === family);
 
   return (
     <div>
-      <h1 className="page-title">Reports</h1>
-      <p className="page-subtitle">Sales, payouts, and courier reconciliation.</p>
-      {message && <div className="alert alert-success">{message}</div>}
-
-      <div className="tabs" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
-        {TABS.map((t) => (
-          <button key={t} type="button" className={`btn ${tab === t ? 'btn-primary' : 'btn-secondary'} btn-sm`} onClick={() => setTab(t)}>{t}</button>
-        ))}
-      </div>
-
-      {tab === 'Financial' && (
+      <div className="page-header">
         <div>
-          <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
-            <input className="input" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            <input className="input" type="number" placeholder="Ad spend (Rs)" value={adSpend} onChange={(e) => setAdSpend(e.target.value)} />
-            <button type="button" className="btn btn-secondary" onClick={saveAdSpend}>Save Ad Spend</button>
-          </div>
-          {financial && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16 }}>
-              {[
-                ['Orders', financial.total_orders],
-                ['Delivered', financial.delivered_orders],
-                ['Returned', financial.returned_orders],
-                ['Revenue', `Rs ${financial.revenue}`],
-                ['Product Cost', `Rs ${financial.product_cost_total}`],
-                ['Courier Cost', `Rs ${financial.courier_cost_total}`],
-                ['Ad Spend', `Rs ${financial.ad_spend}`],
-                ['Net Profit', `Rs ${financial.net_profit}`],
-              ].map(([label, val]) => (
-                <div key={label} className="card" style={{ padding: 16 }}><div style={{ color: '#78716c' }}>{label}</div><div style={{ fontSize: 22, fontWeight: 700 }}>{val}</div></div>
-              ))}
-            </div>
-          )}
+          <h1 className="page-title">Reports centre</h1>
+          <p className="page-subtitle">Filters run on the server. Financial statements stay unavailable until TekhAccounts is connected. FBR is not live.</p>
         </div>
-      )}
+        <div className="no-print" style={{ display: 'flex', gap: 8 }}>
+          <button type="button" className="btn btn-secondary" onClick={exportCsv}>Export CSV</button>
+          <button type="button" className="btn btn-primary" onClick={() => window.print()}>Print</button>
+        </div>
+      </div>
+      {error && <div className="alert alert-error no-print">{error}</div>}
 
-      {tab === 'Master' && (
-        <div>
-          <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
-            <input className="input" type="date" value={filters.start} onChange={(e) => setFilters({ ...filters, start: e.target.value })} />
-            <input className="input" type="date" value={filters.end} onChange={(e) => setFilters({ ...filters, end: e.target.value })} />
-            <select className="select" value={filters.store} onChange={(e) => setFilters({ ...filters, store: e.target.value })}>
+      <div className="dashboard-grid">
+        <section className="panel no-print">
+          {groups.map((group) => (
+            <div key={group} style={{ marginBottom: 16 }}>
+              <h2 className="panel-title">{group}</h2>
+              <div className="choice-row">
+                {families.filter((row) => row.category === group).map((row) => (
+                  <button key={row.id} type="button" className={`btn btn-sm ${family === row.id ? 'btn-primary' : 'btn-secondary'}`} onClick={() => setFamily(row.id)}>{row.title}</button>
+                ))}
+              </div>
+            </div>
+          ))}
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <input className="input" type="date" value={start} onChange={(e) => setStart(e.target.value)} />
+            <input className="input" type="date" value={end} onChange={(e) => setEnd(e.target.value)} />
+            <input className="input" placeholder="Search" value={q} onChange={(e) => setQ(e.target.value)} />
+            <select className="select" value={store} onChange={(e) => setStore(e.target.value)}>
               <option value="">All stores</option>
               <option value="LOCAL">LOCAL</option>
               <option value="VOGUE">VOGUE</option>
               <option value="SNS">SNS</option>
             </select>
           </div>
-          {master && (
-            <>
-              <div style={{ marginBottom: 16, color: '#78716c' }}>
-                {master.summary.count} orders · Sales Rs {master.summary.total_sale} · Cost Rs {master.summary.total_cost}
-              </div>
-              <div className="card table-wrap">
-                <table>
-                  <thead><tr><th>#</th><th>Date</th><th>Order</th><th>Customer</th><th>Status</th><th>Sale</th></tr></thead>
-                  <tbody>
-                    {master.rows.map((r) => (
-                      <tr key={r.order_id}><td>{r.sno}</td><td>{r.date}</td><td>{r.order_id}</td><td>{r.customer}</td><td>{r.status}</td><td>{r.sale}</td></tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
-          )}
-        </div>
-      )}
+        </section>
 
-      {tab === 'Payout' && (
-        <div className="card table-wrap">
-          <table>
-            <thead><tr><th>Store</th><th>Paid On</th><th>Payment ID</th><th>RR Amount</th><th>Net Payable</th></tr></thead>
-            <tbody>
-              {payouts.map((p, i) => (
-                <tr key={i}><td>{p.store}</td><td>{p['Paid On']}</td><td>{p['Payment ID']}</td><td>{p['RR Amount']}</td><td>{p['Net Payable']}</td></tr>
+        <section className="panel print-sheet">
+          <h2 className="panel-title">{current?.title || family}</h2>
+          {loading && <div className="empty">Loading…</div>}
+          {report && !report.available && (
+            <div className="alert alert-error">{report.reason}</div>
+          )}
+          {report?.source && <p className="hint">{report.source}</p>}
+          {report?.notes?.map((note) => <p key={note} className="hint">{note}</p>)}
+          {report?.totals && (
+            <ul className="metric-list">
+              {Object.entries(report.totals).map(([key, value]) => (
+                <li key={key}><span>{key.replace(/_/g, ' ')}</span><strong>{String(value)}</strong></li>
               ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
-      {tab === 'Weekly' && (
-        <div>
-          <button type="button" className="btn btn-secondary" style={{ marginBottom: 16 }} onClick={generateWeekly}>Generate This Week</button>
-          <div className="card table-wrap">
-            <table>
-              <thead><tr><th>Week</th><th>Orders</th><th>Delivered</th><th>Sales</th><th>Payout</th><th>Balance</th></tr></thead>
-              <tbody>
-                {weekly.map((r, i) => (
-                  <tr key={i}><td>{r.week_start} → {r.week_end}</td><td>{r.total_orders}</td><td>{r.delivered_orders}</td><td>{r.total_sale}</td><td>{r.payout_received}</td><td>{r.balance_with_courier}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {tab === 'Courier Balance' && (
-        <div>
-          <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
-            <select className="select" value={courierFilters.store} onChange={(e) => setCourierFilters({ ...courierFilters, store: e.target.value })}>
-              <option value="">All stores</option>
-              <option value="VOGUE">VOGUE</option>
-              <option value="SNS">SNS</option>
-            </select>
-            <input className="input" type="date" value={courierFilters.from_date} onChange={(e) => setCourierFilters({ ...courierFilters, from_date: e.target.value })} />
-            <input className="input" type="date" value={courierFilters.to_date} onChange={(e) => setCourierFilters({ ...courierFilters, to_date: e.target.value })} />
-          </div>
-          {courier && (
-            <>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12, marginBottom: 20 }}>
-                {Object.entries(courier.summary).map(([k, v]) => (
-                  <div key={k} className="card" style={{ padding: 12 }}><div style={{ fontSize: 12, color: '#78716c' }}>{k.replace(/_/g, ' ')}</div><div style={{ fontWeight: 700 }}>{v}</div></div>
-                ))}
-              </div>
-              <div className="card table-wrap">
-                <table>
-                  <thead><tr><th>Store</th><th>Paid On</th><th>COD</th><th>Expected</th><th>Bank Paid</th><th>Diff</th></tr></thead>
-                  <tbody>
-                    {courier.rows.map((r, i) => (
-                      <tr key={i}><td>{r.store}</td><td>{r.paid_on}</td><td>{r.cod_amount}</td><td>{r.expected_net}</td><td>{r.bank_paid}</td><td>{r.difference}</td></tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
+            </ul>
           )}
-        </div>
-      )}
+          {report?.available && !rows.length && <div className="empty empty-sm">No rows for this period.</div>}
+          {!!rows.length && (
+            <div className="table-wrap">
+              <table className="data-table">
+                <thead><tr>{headers.map((h) => <th key={h}>{h.replace(/_/g, ' ')}</th>)}</tr></thead>
+                <tbody>
+                  {rows.slice(0, 200).map((row, index) => (
+                    <tr key={row.number || row.order_id || row.id || index}>
+                      {headers.map((h) => <td key={h}>{String(row[h] ?? '')}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      </div>
     </div>
   );
 }

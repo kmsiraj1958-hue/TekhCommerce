@@ -1,0 +1,583 @@
+[
+    {
+        "date": "2026-08-13 17:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0001"
+    },
+    {
+        "date": "2026-08-14 13:10",
+        "code": "DEMO-BAG-02",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0003"
+    },
+    {
+        "date": "2026-08-18 11:00",
+        "code": "DEMO-BAG-02",
+        "qty": 3,
+        "type": "return_in",
+        "store": "SNS",
+        "note": "DEMO warehouse restock: DEM-0003"
+    },
+    {
+        "date": "2026-08-15 17:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0004"
+    },
+    {
+        "date": "2026-08-15 10:10",
+        "code": "DEMO-HAT-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0005"
+    },
+    {
+        "date": "2026-08-16 12:10",
+        "code": "DEMO-BAG-02",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0006"
+    },
+    {
+        "date": "2026-08-16 10:10",
+        "code": "DEMO-HAT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0007"
+    },
+    {
+        "date": "2026-08-17 11:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0008"
+    },
+    {
+        "date": "2026-08-19 12:10",
+        "code": "DEMO-TEE-02",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0009"
+    },
+    {
+        "date": "2026-08-19 13:10",
+        "code": "DEMO-BAG-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0010"
+    },
+    {
+        "date": "2026-08-20 12:10",
+        "code": "DEMO-BAG-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0011"
+    },
+    {
+        "date": "2026-08-21 13:10",
+        "code": "DEMO-WAL-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0012"
+    },
+    {
+        "date": "2026-08-22 16:10",
+        "code": "DEMO-TEE-02",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0013"
+    },
+    {
+        "date": "2026-08-22 17:10",
+        "code": "DEMO-SCN-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0014"
+    },
+    {
+        "date": "2026-08-23 17:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0015"
+    },
+    {
+        "date": "2026-08-24 13:10",
+        "code": "DEMO-TEE-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0016"
+    },
+    {
+        "date": "2026-08-26 12:10",
+        "code": "DEMO-SCN-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0017"
+    },
+    {
+        "date": "2026-08-27 14:10",
+        "code": "DEMO-BAG-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0018"
+    },
+    {
+        "date": "2026-08-28 16:10",
+        "code": "DEMO-BAG-02",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0019"
+    },
+    {
+        "date": "2026-08-28 12:10",
+        "code": "DEMO-TEE-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0020"
+    },
+    {
+        "date": "2026-08-29 13:10",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0021"
+    },
+    {
+        "date": "2026-08-30 14:10",
+        "code": "DEMO-BAG-02",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0022"
+    },
+    {
+        "date": "2026-08-31 15:10",
+        "code": "DEMO-TEE-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0023"
+    },
+    {
+        "date": "2026-09-02 10:10",
+        "code": "DEMO-MUG-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0024"
+    },
+    {
+        "date": "2026-09-02 10:10",
+        "code": "DEMO-HAT-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0025"
+    },
+    {
+        "date": "2026-09-03 14:10",
+        "code": "DEMO-BELT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0026"
+    },
+    {
+        "date": "2026-09-04 13:10",
+        "code": "DEMO-WAL-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0027"
+    },
+    {
+        "date": "2026-09-05 15:10",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0028"
+    },
+    {
+        "date": "2026-09-05 13:10",
+        "code": "DEMO-HAT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0029"
+    },
+    {
+        "date": "2026-09-06 14:10",
+        "code": "DEMO-MUG-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0030"
+    },
+    {
+        "date": "2026-09-06 11:10",
+        "code": "DEMO-WAL-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0031"
+    },
+    {
+        "date": "2026-09-07 11:10",
+        "code": "DEMO-BELT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0032"
+    },
+    {
+        "date": "2026-09-07 14:10",
+        "code": "DEMO-TEE-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0033"
+    },
+    {
+        "date": "2026-09-09 15:10",
+        "code": "DEMO-SCN-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0034"
+    },
+    {
+        "date": "2026-09-09 15:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0035"
+    },
+    {
+        "date": "2026-09-10 16:10",
+        "code": "DEMO-TEE-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0036"
+    },
+    {
+        "date": "2026-09-11 11:10",
+        "code": "DEMO-SCN-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0037"
+    },
+    {
+        "date": "2026-09-12 16:10",
+        "code": "DEMO-TEE-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0038"
+    },
+    {
+        "date": "2026-09-12 14:10",
+        "code": "DEMO-BELT-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0039"
+    },
+    {
+        "date": "2026-09-13 17:10",
+        "code": "DEMO-TEE-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0040"
+    },
+    {
+        "date": "2026-09-14 16:10",
+        "code": "DEMO-HAT-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0041"
+    },
+    {
+        "date": "2026-09-17 17:10",
+        "code": "DEMO-HAT-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0044"
+    },
+    {
+        "date": "2026-09-18 10:10",
+        "code": "DEMO-HAT-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0046"
+    },
+    {
+        "date": "2026-09-19 15:10",
+        "code": "DEMO-MUG-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0047"
+    },
+    {
+        "date": "2026-09-20 11:10",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0048"
+    },
+    {
+        "date": "2026-09-23 12:10",
+        "code": "DEMO-BAG-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0051"
+    },
+    {
+        "date": "2026-09-24 15:10",
+        "code": "DEMO-BAG-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0052"
+    },
+    {
+        "date": "2026-09-25 15:10",
+        "code": "DEMO-TEE-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0054"
+    },
+    {
+        "date": "2026-09-25 14:10",
+        "code": "DEMO-MUG-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0055"
+    },
+    {
+        "date": "2026-09-26 12:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0056"
+    },
+    {
+        "date": "2026-09-26 14:10",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0057"
+    },
+    {
+        "date": "2026-09-30 11:00",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "return_in",
+        "store": "VOGUE",
+        "note": "DEMO warehouse restock: DEM-0057"
+    },
+    {
+        "date": "2026-09-27 15:10",
+        "code": "DEMO-HAT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0058"
+    },
+    {
+        "date": "2026-09-28 11:10",
+        "code": "DEMO-BELT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0059"
+    },
+    {
+        "date": "2026-09-30 12:10",
+        "code": "DEMO-WAL-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0060"
+    },
+    {
+        "date": "2026-09-30 15:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0061"
+    },
+    {
+        "date": "2026-10-01 16:10",
+        "code": "DEMO-TEE-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0062"
+    },
+    {
+        "date": "2026-10-01 14:10",
+        "code": "DEMO-BELT-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0063"
+    },
+    {
+        "date": "2026-10-02 15:10",
+        "code": "DEMO-BAG-02",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0064"
+    },
+    {
+        "date": "2026-10-03 11:10",
+        "code": "DEMO-TEE-02",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0065"
+    },
+    {
+        "date": "2026-10-03 12:10",
+        "code": "DEMO-BAG-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0066"
+    },
+    {
+        "date": "2026-10-04 13:10",
+        "code": "DEMO-HAT-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0067"
+    },
+    {
+        "date": "2026-10-05 14:10",
+        "code": "DEMO-HAT-01",
+        "qty": 3,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0068"
+    },
+    {
+        "date": "2026-10-07 11:10",
+        "code": "DEMO-TEE-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0069"
+    },
+    {
+        "date": "2026-10-07 11:10",
+        "code": "DEMO-MUG-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0070"
+    },
+    {
+        "date": "2026-10-08 14:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0071"
+    },
+    {
+        "date": "2026-10-08 16:10",
+        "code": "DEMO-SCN-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "LOCAL",
+        "note": "DEMO dispatch: DEM-0072"
+    },
+    {
+        "date": "2026-10-09 13:10",
+        "code": "DEMO-SOCK-01",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0073"
+    },
+    {
+        "date": "2026-10-10 12:10",
+        "code": "DEMO-TEE-02",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "VOGUE",
+        "note": "DEMO dispatch: DEM-0074"
+    },
+    {
+        "date": "2026-10-11 15:10",
+        "code": "DEMO-BELT-01",
+        "qty": 1,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0075"
+    },
+    {
+        "date": "2026-10-11 12:10",
+        "code": "DEMO-BAG-02",
+        "qty": 2,
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "DEMO dispatch: DEM-0076"
+    },
+    {
+        "id": "741f40c2-ba9b-4af5-bcba-49bc434721ab",
+        "date": "2026-10-11 19:09",
+        "code": "DEMO-TEE-01",
+        "qty": 1,
+        "uom": "",
+        "type": "dispatch",
+        "store": "SNS",
+        "note": "Order confirmed: ORD-0005",
+        "ref": "",
+        "production_id": "",
+        "user": ""
+    }
+]

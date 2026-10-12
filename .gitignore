@@ -6,3 +6,8 @@ client/dist/
 uploads/tmp/
 *.log
 .DS_Store
+backups/
+server/data/onboarding/*.json
+server/prisma/*.db
+server/prisma/*.db-journal
+public-demo-release/

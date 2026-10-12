@@ -4,6 +4,9 @@ import { loadJson, saveJson } from '../utils/storage.js';
 import { safeNumber, nowStamp } from '../utils/helpers.js';
 import * as inventory from './inventoryService.js';
 import * as whatsapp from './whatsappService.js';
+import { getDashboardSummary } from './dashboardService.js';
+
+export { getDashboardSummary };
 
 export function loadOrders() {
   return loadJson(config.files.orders, []);
@@ -55,31 +58,50 @@ export function createOrder(payload) {
   return order;
 }
 
-export function updateOrderStatus(orderId, status, { sendWhatsapp = true } = {}) {
-  const allowed = new Set(['Pending', 'Confirmed', 'Booked', 'Shipped', 'Delivered', 'Returned']);
-  const normalized = (status || '').trim().replace(/\b\w/g, (c) => c.toUpperCase());
-  if (!allowed.has(normalized)) throw new Error('Invalid status');
+const ALLOWED_STATUSES = new Set(['Pending', 'Confirmed', 'Booked', 'Shipped', 'Delivered', 'Returned']);
+const RESERVE_STATUSES = new Set(['Confirmed', 'Booked', 'Shipped', 'Delivered']);
 
+/**
+ * Single status pipeline for admin, Shopify fulfillment and M&P updates.
+ * Stock flags and WhatsApp records are idempotent; callers save the orders array.
+ */
+export function applyStatusToOrder(order, status, { sendWhatsapp = true, stamps = {} } = {}) {
+  const normalized = (status || '').trim().replace(/\b\w/g, (c) => c.toUpperCase());
+  if (!ALLOWED_STATUSES.has(normalized)) throw new Error('Invalid status');
+
+  const previous = (order.status || 'Pending').trim();
+  const statusChanged = previous !== normalized;
+  if (statusChanged) {
+    order.status = normalized;
+    order.status_updated_at = nowStamp();
+    if (normalized === 'Shipped') order.shipped_at = stamps.shipped_at || nowStamp();
+    if (normalized === 'Delivered') order.delivered_at = stamps.delivered_at || nowStamp();
+    if (normalized === 'Returned') order.returned_at = stamps.returned_at || nowStamp();
+  }
+
+  let stockReserved = false;
+  let stockRestored = false;
+  if (RESERVE_STATUSES.has(normalized)) {
+    stockReserved = Boolean(inventory.reserveStockForOrder(order));
+  }
+  if (normalized === 'Returned') {
+    stockRestored = Boolean(inventory.restoreStockForOrder(order));
+  }
+
+  let notification = null;
+  if (sendWhatsapp) {
+    notification = whatsapp.notifyOrderStatus(order, normalized, { statusChanged });
+  }
+
+  return { order, previous, statusChanged, stockReserved, stockRestored, notification };
+}
+
+export function updateOrderStatus(orderId, status, { sendWhatsapp = true } = {}) {
   const orders = loadOrders();
   const order = orders.find((o) => String(o.order_id) === String(orderId));
   if (!order) return null;
-
-  order.status = normalized;
-  order.status_updated_at = nowStamp();
-
-  if (normalized === 'Confirmed' && !order.stock_reserved) {
-    inventory.reserveStockForOrder(order);
-  }
-  if (normalized === 'Returned' && order.stock_reserved && !order.stock_restocked) {
-    inventory.restoreStockForOrder(order);
-  }
-
+  applyStatusToOrder(order, status, { sendWhatsapp });
   saveOrders(orders);
-
-  if (sendWhatsapp && ['Confirmed', 'Shipped', 'Delivered', 'Returned'].includes(normalized)) {
-    whatsapp.sendOrderStatusMessage(order, normalized);
-  }
-
   return order;
 }
 
@@ -93,22 +115,13 @@ export function deleteOrder(orderId) {
 }
 
 export function getDashboardStats() {
-  const orders = loadOrders();
-  const products = loadJson(config.files.products, []);
-  const delivered = orders.filter((o) => o.status === 'Delivered');
-  return {
-    total_products: products.length,
-    total_orders: orders.length,
-    pending_orders: orders.filter((o) => o.status === 'Pending').length,
-    booked_orders: orders.filter((o) => o.status === 'Booked').length,
-    shipped_orders: orders.filter((o) => o.status === 'Shipped').length,
-    delivered_orders: delivered.length,
-    returned_orders: orders.filter((o) => o.status === 'Returned').length,
-    total_sale: delivered.reduce((sum, o) => sum + safeNumber(o.price), 0),
-  };
+  return getDashboardSummary();
 }
 
 export function buildWhatsappCheckoutUrl(order, customer) {
+  if (config.demoMode) {
+    return '#whatsapp-disabled-on-development-data';
+  }
   const msg = `Order Received:
 ID: ${order.order_id}
 Products: ${order.product_name}

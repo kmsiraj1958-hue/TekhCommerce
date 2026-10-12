@@ -20,6 +20,14 @@ export function getSecret(store) {
 export function createOrderFromShopify(store, payload) {
   const storeLabel = store.toUpperCase();
   const orders = orderService.loadOrders();
+  const shopifyOrderId = String(payload.id || '');
+  if (shopifyOrderId) {
+    const existing = orders.find((row) => (
+      String(row.store || '').toUpperCase() === storeLabel
+      && String(row.shopify_order_id) === shopifyOrderId
+    ));
+    if (existing) return existing;
+  }
   const customer = payload.customer || {};
   const customerName = `${(customer.first_name || '').trim()} ${(customer.last_name || '').trim()}`.trim()
     || payload.contact_email || 'Customer';
@@ -96,8 +104,10 @@ export function updateFromFulfillment(store, payload) {
       if (fulfillment.tracking_company) o.courier = fulfillment.tracking_company;
       if (trackingNumber) {
         o.tracking_number = trackingNumber;
-        o.status = 'Shipped';
-        o.shipped_at = nowStamp();
+        orderService.applyStatusToOrder(o, 'Shipped', {
+          sendWhatsapp: true,
+          stamps: { shipped_at: nowStamp() },
+        });
       }
       updated = true;
       break;

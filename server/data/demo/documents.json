@@ -1,0 +1,966 @@
+{
+    "sequences": {
+        "SI-2026": 4,
+        "CN-2026": 2,
+        "QU-2026": 2,
+        "DC-2026": 2,
+        "PR-2026": 1,
+        "DN-2026": 1,
+        "PB-2026": 1,
+        "PV-2026": 1
+    },
+    "idempotency": {
+        "test-si-DEM-0005": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+        "cn-5c2b7c42-5c10-4ff5-8784-987bcef31b2b-10": "c1c20124-8581-4b58-acea-a9e1a662c9e3",
+        "qu-DEM-0007": "3f645eeb-2a36-4f83-9802-bdaec6a897ab",
+        "dc-DEM-0007": "b2aa64dc-a387-4746-98ca-3661eea4e8fb",
+        "preserve-wa-DEM-0005": "baad2bf5-607c-49c2-bd4a-d029ce8e3d20",
+        "qa-si-DEM-0001": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+        "qa-pr-fin-demo-2-f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48": "57a01748-66e0-4e70-8727-6a826603c4d3",
+        "qa-cn-f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48": "4d0b5aeb-9d28-4672-81ce-c16ed2c622ba",
+        "qa-dn-f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48": "d07f0048-ecf7-482f-a5de-482654700fbc",
+        "qa-qu-DEM-0002": "07c9756e-8d77-4106-a1de-e45a79c7a28d",
+        "qa-dc-DEM-0002": "85a5da87-988e-4a5a-b63c-143a64da6f53",
+        "qa-pb-1791727747546": "28c45ee9-3055-4821-b471-7258832bff39",
+        "qa-pv-fin-demo-3": "1dfce960-e27d-4469-a43f-ebb85473dec9",
+        "sales_invoice-DEM-0004": "cca36104-6cee-4df4-8eda-9c9ae30527b8"
+    },
+    "documents": [
+        {
+            "id": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+            "type": "sales_invoice",
+            "number": "SI-2026-00001",
+            "status": "void",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0005",
+            "source_type": "order",
+            "source_id": "DEM-0005",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Three",
+            "customer_phone": "03000001003",
+            "customer_address": "Demo Lane 3, Islamabad",
+            "supplier_name": "",
+            "store": "SNS",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": true,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-HAT-01",
+                        "description": "Demo Cap",
+                        "qty": 2,
+                        "unit_price": 990,
+                        "discount": 0,
+                        "line_gross": 1980,
+                        "line_amount": 1980
+                    }
+                ],
+                "subtotal": 1980,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 1980,
+                "tax_amount": 0,
+                "grand_total": 1980
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-HAT-01",
+                    "description": "Demo Cap",
+                    "qty": 2,
+                    "unit_price": 990,
+                    "discount": 0,
+                    "line_gross": 1980,
+                    "line_amount": 1980
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09",
+            "void_reason": "Test void — use credit notes in production",
+            "voided_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "c1c20124-8581-4b58-acea-a9e1a662c9e3",
+            "type": "credit_note",
+            "number": "CN-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "document",
+            "source_id": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+            "original_document_id": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+            "original_document_no": "SI-2026-00001",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Three",
+            "customer_phone": "03000001003",
+            "customer_address": "Demo Lane 3, Islamabad",
+            "supplier_name": "",
+            "store": "",
+            "payment_method": "",
+            "reason": "Damaged item",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "Damaged item",
+                        "qty": 1,
+                        "unit_price": 10,
+                        "discount": 0,
+                        "line_gross": 10,
+                        "line_amount": 10
+                    }
+                ],
+                "subtotal": 10,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 10,
+                "tax_amount": 0,
+                "grand_total": 10
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "Damaged item",
+                    "qty": 1,
+                    "unit_price": 10,
+                    "discount": 0,
+                    "line_gross": 10,
+                    "line_amount": 10
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "3f645eeb-2a36-4f83-9802-bdaec6a897ab",
+            "type": "quotation",
+            "number": "QU-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0007",
+            "source_type": "order",
+            "source_id": "DEM-0007",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Six",
+            "customer_phone": "03000001006",
+            "customer_address": "Demo Town, Peshawar",
+            "supplier_name": "",
+            "store": "SNS",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-HAT-01",
+                        "description": "Demo Cap",
+                        "qty": 1,
+                        "unit_price": 990,
+                        "discount": 0,
+                        "line_gross": 990,
+                        "line_amount": 990
+                    }
+                ],
+                "subtotal": 990,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 990,
+                "tax_amount": 0,
+                "grand_total": 990
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-HAT-01",
+                    "description": "Demo Cap",
+                    "qty": 1,
+                    "unit_price": 990,
+                    "discount": 0,
+                    "line_gross": 990,
+                    "line_amount": 990
+                }
+            ],
+            "posted": false,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "b2aa64dc-a387-4746-98ca-3661eea4e8fb",
+            "type": "delivery_challan",
+            "number": "DC-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0007",
+            "source_type": "order",
+            "source_id": "DEM-0007",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Six",
+            "customer_phone": "03000001006",
+            "customer_address": "Demo Town, Peshawar",
+            "supplier_name": "",
+            "store": "SNS",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-HAT-01",
+                        "description": "Demo Cap",
+                        "qty": 1,
+                        "unit_price": 990,
+                        "discount": 0,
+                        "line_gross": 990,
+                        "line_amount": 990
+                    }
+                ],
+                "subtotal": 990,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 990,
+                "tax_amount": 0,
+                "grand_total": 990
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-HAT-01",
+                    "description": "Demo Cap",
+                    "qty": 1,
+                    "unit_price": 990,
+                    "discount": 0,
+                    "line_gross": 990,
+                    "line_amount": 990
+                }
+            ],
+            "posted": false,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "baad2bf5-607c-49c2-bd4a-d029ce8e3d20",
+            "type": "sales_invoice",
+            "number": "SI-2026-00002",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0005",
+            "source_type": "order",
+            "source_id": "DEM-0005",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Three",
+            "customer_phone": "03000001003",
+            "customer_address": "Demo Lane 3, Islamabad",
+            "supplier_name": "",
+            "store": "SNS",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": true,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-HAT-01",
+                        "description": "Demo Cap",
+                        "qty": 2,
+                        "unit_price": 990,
+                        "discount": 0,
+                        "line_gross": 1980,
+                        "line_amount": 1980
+                    }
+                ],
+                "subtotal": 1980,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 1980,
+                "tax_amount": 0,
+                "grand_total": 1980
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-HAT-01",
+                    "description": "Demo Cap",
+                    "qty": 2,
+                    "unit_price": 990,
+                    "discount": 0,
+                    "line_gross": 1980,
+                    "line_amount": 1980
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "type": "sales_invoice",
+            "number": "SI-2026-00003",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0001",
+            "source_type": "order",
+            "source_id": "DEM-0001",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Five",
+            "customer_phone": "03000001005",
+            "customer_address": "Demo Society, Multan",
+            "supplier_name": "",
+            "store": "VOGUE",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": true,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-SOCK-01",
+                        "description": "Demo Socks 3pk",
+                        "qty": 1,
+                        "unit_price": 690,
+                        "discount": 0,
+                        "line_gross": 690,
+                        "line_amount": 690
+                    }
+                ],
+                "subtotal": 690,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 690,
+                "tax_amount": 0,
+                "grand_total": 690
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-SOCK-01",
+                    "description": "Demo Socks 3pk",
+                    "qty": 1,
+                    "unit_price": 690,
+                    "discount": 0,
+                    "line_gross": 690,
+                    "line_amount": 690
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "57a01748-66e0-4e70-8727-6a826603c4d3",
+            "type": "payment_receipt",
+            "number": "PR-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "finance_entry",
+            "source_id": "fin-demo-2",
+            "original_document_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "original_document_no": "SI-2026-00003",
+            "finance_entry_id": "fin-demo-2",
+            "customer_name": "Demo Buyer Five",
+            "customer_phone": "03000001005",
+            "customer_address": "Demo Society, Multan",
+            "supplier_name": "",
+            "store": "",
+            "payment_method": "Counter",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "DEMO cash counter sale receipt",
+                        "qty": 1,
+                        "unit_price": 4500,
+                        "discount": 0,
+                        "line_gross": 4500,
+                        "line_amount": 4500
+                    }
+                ],
+                "subtotal": 4500,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 4500,
+                "tax_amount": 0,
+                "grand_total": 4500
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "DEMO cash counter sale receipt",
+                    "qty": 1,
+                    "unit_price": 4500,
+                    "discount": 0,
+                    "line_gross": 4500,
+                    "line_amount": 4500
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "4d0b5aeb-9d28-4672-81ce-c16ed2c622ba",
+            "type": "credit_note",
+            "number": "CN-2026-00002",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "document",
+            "source_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "original_document_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "original_document_no": "SI-2026-00003",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Five",
+            "customer_phone": "03000001005",
+            "customer_address": "Demo Society, Multan",
+            "supplier_name": "",
+            "store": "",
+            "payment_method": "",
+            "reason": "QA authorised return allowance",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "QA authorised return allowance",
+                        "qty": 1,
+                        "unit_price": 25,
+                        "discount": 0,
+                        "line_gross": 25,
+                        "line_amount": 25
+                    }
+                ],
+                "subtotal": 25,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 25,
+                "tax_amount": 0,
+                "grand_total": 25
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "QA authorised return allowance",
+                    "qty": 1,
+                    "unit_price": 25,
+                    "discount": 0,
+                    "line_gross": 25,
+                    "line_amount": 25
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "d07f0048-ecf7-482f-a5de-482654700fbc",
+            "type": "debit_note",
+            "number": "DN-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "document",
+            "source_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "original_document_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "original_document_no": "SI-2026-00003",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Five",
+            "customer_phone": "03000001005",
+            "customer_address": "Demo Society, Multan",
+            "supplier_name": "",
+            "store": "",
+            "payment_method": "",
+            "reason": "QA authorised extra charge",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "QA authorised extra charge",
+                        "qty": 1,
+                        "unit_price": 10,
+                        "discount": 0,
+                        "line_gross": 10,
+                        "line_amount": 10
+                    }
+                ],
+                "subtotal": 10,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 10,
+                "tax_amount": 0,
+                "grand_total": 10
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "QA authorised extra charge",
+                    "qty": 1,
+                    "unit_price": 10,
+                    "discount": 0,
+                    "line_gross": 10,
+                    "line_amount": 10
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "07c9756e-8d77-4106-a1de-e45a79c7a28d",
+            "type": "quotation",
+            "number": "QU-2026-00002",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0002",
+            "source_type": "order",
+            "source_id": "DEM-0002",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Four",
+            "customer_phone": "03000001004",
+            "customer_address": "Demo Block D, Faisalabad",
+            "supplier_name": "",
+            "store": "LOCAL",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-SCN-01",
+                        "description": "Demo Scarf",
+                        "qty": 1,
+                        "unit_price": 1790,
+                        "discount": 0,
+                        "line_gross": 1790,
+                        "line_amount": 1790
+                    }
+                ],
+                "subtotal": 1790,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 1790,
+                "tax_amount": 0,
+                "grand_total": 1790
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-SCN-01",
+                    "description": "Demo Scarf",
+                    "qty": 1,
+                    "unit_price": 1790,
+                    "discount": 0,
+                    "line_gross": 1790,
+                    "line_amount": 1790
+                }
+            ],
+            "posted": false,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "85a5da87-988e-4a5a-b63c-143a64da6f53",
+            "type": "delivery_challan",
+            "number": "DC-2026-00002",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "DEM-0002",
+            "source_type": "order",
+            "source_id": "DEM-0002",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Four",
+            "customer_phone": "03000001004",
+            "customer_address": "Demo Block D, Faisalabad",
+            "supplier_name": "",
+            "store": "LOCAL",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-SCN-01",
+                        "description": "Demo Scarf",
+                        "qty": 1,
+                        "unit_price": 1790,
+                        "discount": 0,
+                        "line_gross": 1790,
+                        "line_amount": 1790
+                    }
+                ],
+                "subtotal": 1790,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 1790,
+                "tax_amount": 0,
+                "grand_total": 1790
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-SCN-01",
+                    "description": "Demo Scarf",
+                    "qty": 1,
+                    "unit_price": 1790,
+                    "discount": 0,
+                    "line_gross": 1790,
+                    "line_amount": 1790
+                }
+            ],
+            "posted": false,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "28c45ee9-3055-4821-b471-7258832bff39",
+            "type": "purchase_bill",
+            "number": "PB-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "manual",
+            "source_id": "",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "",
+            "customer_phone": "",
+            "customer_address": "",
+            "supplier_name": "QA Packaging Vendor",
+            "store": "",
+            "payment_method": "",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "Mailer bags",
+                        "qty": 2,
+                        "unit_price": 50,
+                        "discount": 0,
+                        "line_gross": 100,
+                        "line_amount": 100
+                    }
+                ],
+                "subtotal": 100,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 100,
+                "tax_amount": 0,
+                "grand_total": 100
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "Mailer bags",
+                    "qty": 2,
+                    "unit_price": 50,
+                    "discount": 0,
+                    "line_gross": 100,
+                    "line_amount": 100
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "1dfce960-e27d-4469-a43f-ebb85473dec9",
+            "type": "payment_voucher",
+            "number": "PV-2026-00001",
+            "status": "issued",
+            "issue_date": "2026-10-11",
+            "due_date": "",
+            "order_id": "",
+            "source_type": "finance_entry",
+            "source_id": "fin-demo-3",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "fin-demo-3",
+            "customer_name": "",
+            "customer_phone": "",
+            "customer_address": "",
+            "supplier_name": "",
+            "store": "",
+            "payment_method": "Packing",
+            "reason": "",
+            "notes": "",
+            "tax_document": false,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "",
+                        "description": "DEMO packing supplies",
+                        "qty": 1,
+                        "unit_price": 2200,
+                        "discount": 0,
+                        "line_gross": 2200,
+                        "line_amount": 2200
+                    }
+                ],
+                "subtotal": 2200,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 2200,
+                "tax_amount": 0,
+                "grand_total": 2200
+            },
+            "lines": [
+                {
+                    "sku": "",
+                    "description": "DEMO packing supplies",
+                    "qty": 1,
+                    "unit_price": 2200,
+                    "discount": 0,
+                    "line_gross": 2200,
+                    "line_amount": 2200
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-11 19:09"
+        },
+        {
+            "id": "cca36104-6cee-4df4-8eda-9c9ae30527b8",
+            "type": "sales_invoice",
+            "number": "SI-2026-00004",
+            "status": "issued",
+            "issue_date": "2026-10-12",
+            "due_date": "",
+            "order_id": "DEM-0004",
+            "source_type": "order",
+            "source_id": "DEM-0004",
+            "original_document_id": "",
+            "original_document_no": "",
+            "finance_entry_id": "",
+            "customer_name": "Demo Buyer Seven",
+            "customer_phone": "03000001007",
+            "customer_address": "Demo Colony, Quetta",
+            "supplier_name": "",
+            "store": "VOGUE",
+            "payment_method": "COD",
+            "reason": "",
+            "notes": "",
+            "tax_document": true,
+            "fbr_submitted": false,
+            "totals": {
+                "lines": [
+                    {
+                        "sku": "DEMO-SOCK-01",
+                        "description": "Demo Socks 3pk",
+                        "qty": 1,
+                        "unit_price": 690,
+                        "discount": 0,
+                        "line_gross": 690,
+                        "line_amount": 690
+                    }
+                ],
+                "subtotal": 690,
+                "discount": 0,
+                "shipping": 0,
+                "tax_rate": 0,
+                "tax_shipping": false,
+                "tax_base": 690,
+                "tax_amount": 0,
+                "grand_total": 690
+            },
+            "lines": [
+                {
+                    "sku": "DEMO-SOCK-01",
+                    "description": "Demo Socks 3pk",
+                    "qty": 1,
+                    "unit_price": 690,
+                    "discount": 0,
+                    "line_gross": 690,
+                    "line_amount": 690
+                }
+            ],
+            "posted": true,
+            "created_at": "2026-10-12 05:54"
+        }
+    ],
+    "events": [
+        {
+            "id": "0b5549db-5038-4c8b-a4c2-068a151ba7d0",
+            "document_id": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "sales_invoice",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "6bf691c8-d379-471d-8ea2-d794322a9283",
+            "document_id": "c1c20124-8581-4b58-acea-a9e1a662c9e3",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "Damaged item",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "46c83600-6694-4a18-a442-146f8f9827df",
+            "document_id": "3f645eeb-2a36-4f83-9802-bdaec6a897ab",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "quotation",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "0004d2e8-7384-438f-a48e-9f303b80f698",
+            "document_id": "b2aa64dc-a387-4746-98ca-3661eea4e8fb",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "delivery_challan",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "52667c26-495a-44bb-9d68-88e8dc0ef040",
+            "document_id": "5c2b7c42-5c10-4ff5-8784-987bcef31b2b",
+            "from_status": "issued",
+            "to_status": "void",
+            "note": "Test void — use credit notes in production",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "6b47893f-81e1-4f39-b4c3-b438f582b7d5",
+            "document_id": "baad2bf5-607c-49c2-bd4a-d029ce8e3d20",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "sales_invoice",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "e0417516-2005-4d48-8aae-84a02d12a2f0",
+            "document_id": "f5ca4f5a-639b-42e3-a2e1-bd172b2e6e48",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "sales_invoice",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "4a0e6cd6-c4fd-49ce-8f88-62733f2585ee",
+            "document_id": "57a01748-66e0-4e70-8727-6a826603c4d3",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "payment_receipt",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "d55f33af-19a2-44fb-b5d2-599fab9ae317",
+            "document_id": "4d0b5aeb-9d28-4672-81ce-c16ed2c622ba",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "QA authorised return allowance",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "04afe9b5-243f-4fa8-a48f-2a6c897c2f65",
+            "document_id": "d07f0048-ecf7-482f-a5de-482654700fbc",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "QA authorised extra charge",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "df1dafaa-9fdd-4174-99a4-199525386a0e",
+            "document_id": "07c9756e-8d77-4106-a1de-e45a79c7a28d",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "quotation",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "d3ba25f5-7d19-484b-aa6d-7b9330d1f2ef",
+            "document_id": "85a5da87-988e-4a5a-b63c-143a64da6f53",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "delivery_challan",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "da96a359-f1d1-4f90-9b45-9c829807ff30",
+            "document_id": "28c45ee9-3055-4821-b471-7258832bff39",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "purchase_bill",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "bb3ebb0f-888d-43a0-b759-79880e2c8ff2",
+            "document_id": "1dfce960-e27d-4469-a43f-ebb85473dec9",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "payment_voucher",
+            "at": "2026-10-11 19:09"
+        },
+        {
+            "id": "40980ced-e356-4514-95d8-868558cd9bf9",
+            "document_id": "cca36104-6cee-4df4-8eda-9c9ae30527b8",
+            "from_status": "",
+            "to_status": "issued",
+            "note": "sales_invoice",
+            "at": "2026-10-12 05:54"
+        }
+    ]
+}

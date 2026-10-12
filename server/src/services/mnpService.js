@@ -23,6 +23,9 @@ function mnpCredentials(store) {
 }
 
 export async function fetchFinalStatus(store, trackingNumber) {
+  if (config.demoMode) {
+    return { isSuccess: 'false', message: 'Development data: external courier requests are disabled' };
+  }
   const { user, pass } = mnpCredentials(store);
   const consignment = cleanConsignment(trackingNumber);
   if (!user || !pass || !consignment) return { isSuccess: 'false', message: 'Missing credentials or tracking number' };
@@ -60,16 +63,20 @@ export async function syncOrdersWithMnp() {
 
     const status = resp.Status || '';
     const dt = resp.DateTime || nowStamp();
-    if (isDelivered(status)) {
-      o.status = 'Delivered';
-      o.delivered_at = dt;
-      updated += 1;
-    } else if (isReturned(status)) {
-      o.status = 'Returned';
-      o.returned_at = dt;
-      updated += 1;
-    }
     o.mnp_status = status;
+    if (isDelivered(status)) {
+      const result = orderService.applyStatusToOrder(o, 'Delivered', {
+        sendWhatsapp: true,
+        stamps: { delivered_at: dt },
+      });
+      if (result.statusChanged) updated += 1;
+    } else if (isReturned(status)) {
+      const result = orderService.applyStatusToOrder(o, 'Returned', {
+        sendWhatsapp: true,
+        stamps: { returned_at: dt },
+      });
+      if (result.statusChanged) updated += 1;
+    }
   }
 
   if (updated) orderService.saveOrders(orders);
@@ -133,11 +140,12 @@ export function importDailyXlsx(store, filepath, filename) {
       if (consignee && !(o.customer_name || '').trim()) o.customer_name = String(consignee);
       if (consigneePhone && !(o.customer_phone || '').trim()) o.customer_phone = String(consigneePhone);
 
-      if (['Delivered', 'Returned'].includes(mapped) && o.status !== mapped) {
-        o.status = mapped;
+      if (['Delivered', 'Returned'].includes(mapped)) {
         const stamp = deliveryDate ? String(deliveryDate) : nowStamp();
-        if (mapped === 'Delivered') o.delivered_at = stamp;
-        else o.returned_at = stamp;
+        orderService.applyStatusToOrder(o, mapped, {
+          sendWhatsapp: true,
+          stamps: mapped === 'Delivered' ? { delivered_at: stamp } : { returned_at: stamp },
+        });
       }
       updated += 1;
       break;

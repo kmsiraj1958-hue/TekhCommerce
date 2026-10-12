@@ -1,8 +1,8 @@
-export default function StatCard({ label, value, accent = '#0f766e' }) {
+export default function StatCard({ label, value, accent }) {
   return (
-    <div className="card" style={{ padding: 20 }}>
-      <div style={{ color: '#78716c', fontSize: 14, marginBottom: 8 }}>{label}</div>
-      <div style={{ fontSize: 32, fontWeight: 700, color: accent }}>{value}</div>
+    <div className="stat-card" style={accent ? { '--stat-accent': accent } : undefined}>
+      <div className="stat-card-label">{label}</div>
+      <div className="stat-card-value">{value}</div>
     </div>
   );
 }

@@ -1,0 +1,1 @@
+"# TekhCommerce local demo dataset\n\nSynthetic sample data for `npm run dev`. Never copy these files into the project-root live JSON files. Production uses NODE_ENV=production TEKH_DATA=live.\n"

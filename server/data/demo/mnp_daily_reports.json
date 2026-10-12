@@ -1,0 +1,11 @@
+[
+    {
+        "id": "demo-daily-1",
+        "type": "daily",
+        "store": "VOGUE",
+        "filename": "DEMO_DAILY.xlsx",
+        "imported_at": "2026-09-27 20:00",
+        "rows_count": 8,
+        "demo": true
+    }
+]

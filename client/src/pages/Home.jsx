@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '../api/client';
 import ProductCard from '../components/ProductCard';
 import { useCart } from '../context/CartContext';
+import { BRAND } from '../brand';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -45,9 +46,9 @@ export default function Home() {
         padding: '40px 28px',
         marginBottom: 28,
       }}>
-        <h1 className="page-title" style={{ color: 'white' }}>TekhShopify Store</h1>
+        <h1 className="page-title" style={{ color: 'white' }}>{BRAND.name} Store</h1>
         <p className="page-subtitle" style={{ color: 'rgba(255,255,255,0.85)', marginBottom: 0 }}>
-          Fashion, lifestyle &amp; more — order online and confirm on WhatsApp.
+          {BRAND.storeLine}
         </p>
       </section>
 

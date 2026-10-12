@@ -52,7 +52,7 @@ export default function AdminOrders() {
       </div>
 
       <div className="card table-wrap">
-        <table>
+        <table className="data-table">
           <thead>
             <tr>
               <th>Order</th>

@@ -1,0 +1,39 @@
+{
+    "settings": {
+        "allow_negative_stock": false,
+        "costing_method": "standard_product_cost"
+    },
+    "boms": [
+        {
+            "id": "c2b46f7f-4be6-4568-83c6-ce32d8d6d0b1",
+            "code": "BOM-CASHEW-150",
+            "name": "Cashew Pack 150 g",
+            "finished_sku": "FG-CASHEW-150",
+            "output_qty": 1,
+            "output_uom": "pcs",
+            "components": [
+                {
+                    "sku": "RAW-CASHEW-G",
+                    "qty": 150,
+                    "uom": "g",
+                    "role": "RAW",
+                    "expected_wastage_pct": 0
+                },
+                {
+                    "sku": "PKG-POUCH-150",
+                    "qty": 1,
+                    "uom": "pcs",
+                    "role": "PACKAGING",
+                    "expected_wastage_pct": 0
+                }
+            ],
+            "status": "active",
+            "revision": 1,
+            "effective_from": "2026-10-11",
+            "created_at": "2026-10-11 19:15",
+            "superseded_by": ""
+        }
+    ],
+    "production_orders": [],
+    "posting_log": []
+}

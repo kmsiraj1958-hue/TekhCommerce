@@ -1,0 +1,5 @@
+{
+    "return_overdue_days": 7,
+    "stale_tracking_days": 5,
+    "settlement_overdue_days": 14
+}
